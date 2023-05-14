@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="view.UserMenu.SignupMenu"
+            prefHeight="400.0" prefWidth="600.0" id="mainPain"
+            style="-fx-background-color : #EFEEE0">
+
+    <center>
+        <VBox alignment="CENTER" fillWidth="false" spacing="5">
+            <ImageView fitHeight="100" fitWidth="100"
+                       preserveRatio="true" pickOnBounds="true">
+                <Image url= "@../pictures/logo.png"/>
+            </ImageView>
+            <TextField alignment="CENTER" promptText="username" fx:id="username"/>
+            <Text fx:id="UsernameErrorPrompt" style="-fx-text-fill : red;"/>
+            <TextField alignment="CENTER" promptText="password" fx:id="password"/>
+            <Text fx:id="PasswordErrorPrompt" style="-fx-text-fill : red;"/>
+            <TextField alignment="CENTER" promptText="password confirmation" fx:id="passwordConfirmation"/>
+            <Text fx:id="ConfirmationErrorPrompt" style="-fx-text-fill : red;"/>
+            <Separator prefHeight="10"/>
+            <Button text="create account" prefWidth="160" onMouseClicked="#signupClicked"/>
+            <Button text="back" prefWidth="160" onMouseClicked="#enterLoginMenu"/>
+        </VBox>
+    </center>
+</BorderPane>
