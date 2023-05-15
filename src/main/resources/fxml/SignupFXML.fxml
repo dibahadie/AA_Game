@@ -28,8 +28,10 @@
             <TextField alignment="CENTER" promptText="password confirmation" fx:id="passwordConfirmation"/>
             <Text fx:id="ConfirmationErrorPrompt" style="-fx-text-fill : red;"/>
             <Separator prefHeight="10"/>
-            <Button text="create account" prefWidth="160" onMouseClicked="#signupClicked"/>
-            <Button text="back" prefWidth="160" onMouseClicked="#enterLoginMenu"/>
+            <Button text="create account" prefWidth="160" onMouseClicked="#signupClicked"
+                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+            <Button text="back" prefWidth="160" onMouseClicked="#enterLoginMenu"
+                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
         </VBox>
     </center>
 </BorderPane>

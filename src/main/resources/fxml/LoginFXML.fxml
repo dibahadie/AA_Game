@@ -29,6 +29,7 @@
             <Text fx:id="UsernameErrorPrompt" style="-fx-text-fill : red;"/>
             <TextField alignment="CENTER" promptText="password" fx:id="password"/>
             <Text fx:id="PasswordErrorPrompt" style="-fx-text-fill : red;"/>
+            <CheckBox text="remember me" BorderPane.alignment="BASELINE_LEFT"/>
             <Separator prefHeight="10"/>
             <Button text="login" prefWidth="160" onMouseClicked="#loginClicked"
                 style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
