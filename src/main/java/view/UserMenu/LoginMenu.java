@@ -20,7 +20,6 @@ public class LoginMenu extends Application {
     private static LoginController controller;
     public Text UsernameErrorPrompt = new Text();
     public Text PasswordErrorPrompt = new Text();
-    public Text ConfirmationErrorPrompt = new Text();
     public TextField username = new TextField();
     public TextField password = new TextField();
     public BorderPane pane;
@@ -44,16 +43,26 @@ public class LoginMenu extends Application {
 
     @FXML
     public void initialize(){
-        Font font = new Font(0);
-        UsernameErrorPrompt.setText("");
-        PasswordErrorPrompt.setText("");
-        ConfirmationErrorPrompt.setText("");
-        UsernameErrorPrompt.setFont(font);
-        PasswordErrorPrompt.setFont(font);
-        ConfirmationErrorPrompt.setFont(font);
+        removeErrors();
     }
 
     public void loginClicked(MouseEvent mouseEvent) throws Exception {
+        removeErrors();
+        String name = username.getText();
+        String pass = password.getText();
+        validateInputs();
+//        if (controller.login(name, pass).equals(LoginMessages.SUCCESS)){
+//            MainMenu mainMenu = new MainMenu();
+//            mainMenu.start(classStage);
+//        }
+    }
+
+    public void signupClicked(MouseEvent mouseEvent) throws Exception {
+        SignupMenu signupMenu = new SignupMenu();
+        signupMenu.start(classStage);
+    }
+
+    public void validateInputs(){
         String name = username.getText();
         String pass = password.getText();
         LoginMessages msg;
@@ -61,23 +70,20 @@ public class LoginMenu extends Application {
         if (!msg.equals(LoginMessages.SUCCESS)) printError(msg.getMessage(), UsernameErrorPrompt);
         msg = controller.passwordValidation(name, pass);
         if (!msg.equals(LoginMessages.SUCCESS)) printError(msg.getMessage(), PasswordErrorPrompt);
-        if (controller.login(name, pass).equals(LoginMessages.SUCCESS)){
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.start(classStage);
-        }
     }
-    public void signupClicked(MouseEvent mouseEvent) throws Exception {
-        SignupMenu signupMenu = new SignupMenu();
-        signupMenu.start(classStage);
-    }
+
+
     public void printError(String message, Text prompt){
         prompt.setText(message);
         Font font = new Font(10);
         prompt.setFont(font);
     }
-    // TODO : if not needed remove
-    public void undoPrintError(Text text){
+
+    public void removeErrors(){
         Font font = new Font(0);
-        text.setFont(font);
+        UsernameErrorPrompt.setText("");
+        PasswordErrorPrompt.setText("");
+        UsernameErrorPrompt.setFont(font);
+        PasswordErrorPrompt.setFont(font);
     }
 }

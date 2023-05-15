@@ -5,35 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/ScoreBoardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/SettingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/RegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Messages/LoginMessages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/SettingMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/ProfileMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/SignupMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/CSS/loginStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/LoginFXML.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainFXML.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/SignupFXML.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/pictures/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/Messages/SignupMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/View/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/SignupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/SignupMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/LoginFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/LoginFXML.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,11 +131,19 @@
       <option name="project" value="LOCAL" />
       <updated>1683416709258</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added the initial structure for login and signup menus">
+      <created>1684079763647</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684079763647</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="MVC Structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="MVC Structure" />
+    <MESSAGE value="added the initial structure for login and signup menus" />
+    <option name="LAST_COMMIT_MESSAGE" value="added the initial structure for login and signup menus" />
   </component>
 </project>

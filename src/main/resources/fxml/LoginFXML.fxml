@@ -30,8 +30,10 @@
             <TextField alignment="CENTER" promptText="password" fx:id="password"/>
             <Text fx:id="PasswordErrorPrompt" style="-fx-text-fill : red;"/>
             <Separator prefHeight="10"/>
-            <Button text="login" prefWidth="160" onMouseClicked="#loginClicked"/>
-            <Button text="signup" prefWidth="160" onMouseClicked="#signupClicked"/>
+            <Button text="login" prefWidth="160" onMouseClicked="#loginClicked"
+                style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+            <Button text="signup" prefWidth="160" onMouseClicked="#signupClicked"
+                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
         </VBox>
     </center>
 
