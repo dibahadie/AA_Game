@@ -84,11 +84,11 @@ public class SignupMenu extends Application {
         String confirm = passwordConfirmation.getText();
         SignupMessage msg1, msg2, msg3;
         msg1 = controller.usernameValidation(name);
-        if (!msg1.equals(SignupMessage.SUCCESS)) printError(msg1.getMessage(), UsernameErrorPrompt);
+        if (!msg1.equals(SignupMessage.SUCCESS)) printError("* " + msg1.getMessage(), UsernameErrorPrompt);
         msg2 = controller.passwordValidation(name, pass);
-        if (!msg2.equals(SignupMessage.SUCCESS)) printError(msg2.getMessage(), PasswordErrorPrompt);
+        if (!msg2.equals(SignupMessage.SUCCESS)) printError("* " + msg2.getMessage(), PasswordErrorPrompt);
         msg3 = controller.passwordConfirmValidation(pass, confirm);
-        if (!msg3.equals(SignupMessage.SUCCESS)) printError(msg3.getMessage(), ConfirmationErrorPrompt);
+        if (!msg3.equals(SignupMessage.SUCCESS)) printError("* " + msg3.getMessage(), ConfirmationErrorPrompt);
         return msg1.equals(SignupMessage.SUCCESS) &&
                 msg2.equals(SignupMessage.SUCCESS) &&
                 msg3.equals(SignupMessage.SUCCESS);

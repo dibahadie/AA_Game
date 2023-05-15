@@ -22,11 +22,11 @@
                 <Image url= "@../pictures/logo.png"/>
             </ImageView>
             <TextField alignment="CENTER" promptText="username" fx:id="username"/>
-            <Text fx:id="UsernameErrorPrompt" style="-fx-text-fill : red;"/>
+            <Text fx:id="UsernameErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>
             <TextField alignment="CENTER" promptText="password" fx:id="password"/>
-            <Text fx:id="PasswordErrorPrompt" style="-fx-text-fill : red;"/>
+            <Text fx:id="PasswordErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>
             <TextField alignment="CENTER" promptText="password confirmation" fx:id="passwordConfirmation"/>
-            <Text fx:id="ConfirmationErrorPrompt" style="-fx-text-fill : red;"/>
+            <Text fx:id="ConfirmationErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>
             <Separator prefHeight="10"/>
             <Button text="create account" prefWidth="160" onMouseClicked="#signupClicked"
                     style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>

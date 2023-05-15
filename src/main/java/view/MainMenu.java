@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import view.UserMenu.LoginMenu;
@@ -11,11 +13,10 @@ import view.UserMenu.LoginMenu;
 import java.net.URL;
 
 public class MainMenu extends Application {
-    private Stage classStage;
+    public Button newGame;
     private BorderPane pane;
     @Override
     public void start(Stage stage) throws Exception {
-        classStage = stage;
         pane = FXMLLoader.load(
                 new URL(LoginMenu.class.getResource("/fxml/MainFXML.fxml").toExternalForm()));
         Scene scene = new Scene(pane);
@@ -23,4 +24,28 @@ public class MainMenu extends Application {
         stage.show();
     }
 
+    @FXML
+    public void initialize(){
+
+    }
+
+    public void newGame(MouseEvent mouseEvent) {
+    }
+
+    public void continueGame(MouseEvent mouseEvent) {
+    }
+
+    public void profileMenu(MouseEvent mouseEvent) {
+    }
+
+    public void scoreBoard(MouseEvent mouseEvent) {
+    }
+
+    public void setting(MouseEvent mouseEvent) {
+
+    }
+
+    public void exit(MouseEvent mouseEvent) {
+        System.exit(0);
+    }
 }

@@ -1,10 +1,12 @@
 package view.UserMenu;
 
 import Controller.UserController.LoginController;
+import Controller.UserController.UserManager;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -24,11 +26,12 @@ public class LoginMenu extends Application {
     public TextField password = new TextField();
     public BorderPane pane;
     private static Stage classStage;
-    public TextField passwordConfirmation;
+    public CheckBox rememberUser;
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         controller = new LoginController();
         launch(args);
+        UserManager.load();
     }
 
     @Override
@@ -42,8 +45,9 @@ public class LoginMenu extends Application {
     }
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         removeErrors();
+        rememberUser.setFont(new Font(11));
     }
 
     public void loginClicked(MouseEvent mouseEvent) throws Exception {
@@ -51,10 +55,10 @@ public class LoginMenu extends Application {
         String name = username.getText();
         String pass = password.getText();
         validateInputs();
-//        if (controller.login(name, pass).equals(LoginMessages.SUCCESS)){
-//            MainMenu mainMenu = new MainMenu();
-//            mainMenu.start(classStage);
-//        }
+        if (controller.login(name, pass).equals(LoginMessages.SUCCESS)) {
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.start(LoginMenu.classStage);
+        }
     }
 
     public void signupClicked(MouseEvent mouseEvent) throws Exception {
@@ -62,24 +66,24 @@ public class LoginMenu extends Application {
         signupMenu.start(classStage);
     }
 
-    public void validateInputs(){
+    public void validateInputs() {
         String name = username.getText();
         String pass = password.getText();
         LoginMessages msg;
         msg = controller.usernameValidation(name);
-        if (!msg.equals(LoginMessages.SUCCESS)) printError(msg.getMessage(), UsernameErrorPrompt);
+        if (!msg.equals(LoginMessages.SUCCESS)) printError("* " + msg.getMessage(), UsernameErrorPrompt);
         msg = controller.passwordValidation(name, pass);
-        if (!msg.equals(LoginMessages.SUCCESS)) printError(msg.getMessage(), PasswordErrorPrompt);
+        if (!msg.equals(LoginMessages.SUCCESS)) printError("* " + msg.getMessage(), PasswordErrorPrompt);
     }
 
 
-    public void printError(String message, Text prompt){
+    public void printError(String message, Text prompt) {
         prompt.setText(message);
         Font font = new Font(10);
         prompt.setFont(font);
     }
 
-    public void removeErrors(){
+    public void removeErrors() {
         Font font = new Font(0);
         UsernameErrorPrompt.setText("");
         PasswordErrorPrompt.setText("");

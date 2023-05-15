@@ -14,4 +14,27 @@
             fx:controller="view.MainMenu"
             prefHeight="400.0" prefWidth="600.0" id="mainPain"
             style="-fx-background-color : #EFEEE0">
+
+    <center>
+        <VBox alignment="CENTER" fillWidth="false" spacing="5">
+            <ImageView fitHeight="100" fitWidth="100"
+                       preserveRatio="true" pickOnBounds="true">
+                <Image url= "@../pictures/logo.png"/>
+            </ImageView>
+            <Button text="New Game" prefWidth="160" onMouseClicked="#newGame"
+                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"
+                    fx:id="newGame"/>
+            <Button text="Continue Last Game" prefWidth="160" onMouseClicked="#continueGame"
+                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+            <Button text="Profile Menu" prefWidth="160" onMouseClicked="#profileMenu"
+                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+            <Button text="Score Board" prefWidth="160" onMouseClicked="#scoreBoard"
+                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+            <Button text="Setting" prefWidth="160" onMouseClicked="#setting"
+                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+            <Button text="Exit" prefWidth="160" onMouseClicked="#exit"
+                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+        </VBox>
+    </center>
+
 </BorderPane>

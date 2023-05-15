@@ -1,0 +1,62 @@
+package Controller.UserController;
+
+import Model.Game;
+import Model.User;
+import Settings.Paths;
+import com.google.gson.*;
+
+import java.io.*;
+import java.lang.reflect.Field;
+import java.util.HashMap;
+
+public class UserManager {
+
+
+    public static void updateUsers() {
+        Gson gson = new Gson();
+        JsonArray jsonArray = new JsonArray();
+        JsonObject jsonObject = new JsonObject();
+        for (User user : Game.getUsers().values()){
+            jsonArray.add(gson.toJson(user));
+        }
+        jsonObject.add("users", jsonArray);
+        try {
+            FileWriter fileWriter = new FileWriter(Paths.USER_DATABASE_PATH);
+            fileWriter.write(gson.toJson(jsonObject));
+            fileWriter.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void load() {
+        initializeResources();
+        Reader reader;
+        try {
+            reader = new FileReader(Paths.USER_DATABASE_PATH);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return;
+        }
+        Gson gson = new Gson();
+        JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
+        if (jsonObject == null)
+            return;
+        JsonArray usersArray = jsonObject.getAsJsonArray("users");
+        for (JsonElement element : usersArray)
+            Game.addUser(gson.fromJson(element, User.class));
+    }
+
+
+    private static void initializeResources() {
+        File file = new File(Paths.RESOURCE_DIRECTORY);
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        try {
+            new File(Paths.USER_DATABASE_PATH).createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
