@@ -36,6 +36,8 @@
                 style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
             <Button text="signup" prefWidth="160" onMouseClicked="#signupClicked"
                     style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+            <Button text="start as a guest" prefWidth="160" onMouseClicked="#guestEntrance"
+                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
         </VBox>
     </center>
 

@@ -4,24 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="login and signup graphic">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Settings/Paths.java" afterDir="false" />
+    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/SettingFXML.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SettingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SettingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/SignupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Messages/SignupMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Messages/SignupMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Messages/LoginMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Messages/LoginMessages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/SettingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SettingMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/SignupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/SignupMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/LoginFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/LoginFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/SignupFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/SignupFXML.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,13 +171,31 @@
       <option name="project" value="LOCAL" />
       <updated>1684130732256</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added userManaged functionalities">
+      <created>1684142674437</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684142674437</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="MVC Structure" />
     <MESSAGE value="added the initial structure for login and signup menus" />
     <MESSAGE value="login and signup graphic" />
-    <option name="LAST_COMMIT_MESSAGE" value="login and signup graphic" />
+    <MESSAGE value="added userManaged functionalities" />
+    <option name="LAST_COMMIT_MESSAGE" value="added userManaged functionalities" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NoSuchMethodException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="view.SettingMenu"
+      prefHeight="400.0" prefWidth="600.0" id="mainPain"
+      style="-fx-background-color : #EFEEE0"
+      spacing="5"
+      alignment="CENTER">
+
+    <HBox alignment="CENTER">
+        <Text text="game difficulty level : "/>
+        <ChoiceBox style="-fx-background-radius: 0; -fx-background-color: lightgray;"
+                   fx:id="gameDifficulty">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="easy"/>
+                    <String fx:value="normal"/>
+                    <String fx:value="hard"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </HBox>
+
+    <Button text="create account" prefWidth="160"
+            style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+    <Button text="back" prefWidth="160"
+            style="-fx-background-radius: 0; -fx-background-color: lightgray;"
+            onMouseClicked="#mainMenu"/>
+
+</VBox>

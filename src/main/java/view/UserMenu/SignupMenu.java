@@ -17,7 +17,7 @@ import view.Messages.SignupMessage;
 import java.net.URL;
 
 public class SignupMenu extends Application {
-    private SignupController controller = new SignupController();
+    private SignupController controller = new SignupController(this);
     public static Stage stage;
     public TextField username;
     public TextField password;
@@ -28,7 +28,7 @@ public class SignupMenu extends Application {
     public Text ConfirmationErrorPrompt = new Text();
     @Override
     public void start(Stage stage) throws Exception {
-        controller = new SignupController();
+        controller = new SignupController(this);
         SignupMenu.stage = stage;
         pane = FXMLLoader.load(
                 new URL(LoginMenu.class.getResource("/fxml/SignupFXML.fxml").toExternalForm()));
@@ -48,12 +48,14 @@ public class SignupMenu extends Application {
         ConfirmationErrorPrompt.setFont(font);
     }
 
-    public void signupClicked(MouseEvent mouseEvent) {
+    public void signupClicked(MouseEvent mouseEvent) throws Exception {
         removeErrors();
         String name = username.getText();
         String pass = password.getText();
         if (validateInputs()){
             controller.signup(name, pass);
+            LoginMenu loginMenu = new LoginMenu();
+            loginMenu.start(SignupMenu.stage);
         }
     }
 

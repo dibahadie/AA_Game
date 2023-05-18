@@ -1,5 +1,7 @@
 package view;
 
+import Controller.MainController;
+import Controller.SettingController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +17,7 @@ import java.net.URL;
 public class MainMenu extends Application {
     public Button newGame;
     private BorderPane pane;
+    public static MainController controller;
     @Override
     public void start(Stage stage) throws Exception {
         pane = FXMLLoader.load(
@@ -41,8 +44,8 @@ public class MainMenu extends Application {
     public void scoreBoard(MouseEvent mouseEvent) {
     }
 
-    public void setting(MouseEvent mouseEvent) {
-
+    public void setting(MouseEvent mouseEvent) throws Exception {
+        controller.runSetting();
     }
 
     public void exit(MouseEvent mouseEvent) {

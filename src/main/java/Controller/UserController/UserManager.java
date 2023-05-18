@@ -13,11 +13,12 @@ public class UserManager {
 
 
     public static void updateUsers() {
+        // TODO : code passwords
         Gson gson = new Gson();
         JsonArray jsonArray = new JsonArray();
         JsonObject jsonObject = new JsonObject();
         for (User user : Game.getUsers().values()){
-            jsonArray.add(gson.toJson(user));
+            jsonArray.add(gson.toJsonTree(user).getAsJsonObject());
         }
         jsonObject.add("users", jsonArray);
         try {
@@ -44,7 +45,7 @@ public class UserManager {
             return;
         JsonArray usersArray = jsonObject.getAsJsonArray("users");
         for (JsonElement element : usersArray)
-            Game.addUser(gson.fromJson(element, User.class));
+            Game.getInstance().addUser(gson.fromJson(element, User.class));
     }
 
 

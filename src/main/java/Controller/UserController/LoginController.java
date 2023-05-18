@@ -1,11 +1,27 @@
 package Controller.UserController;
 
+import Controller.MainController;
 import Model.Game;
+import Model.User;
+import view.MainMenu;
 import view.Messages.LoginMessages;
+import view.UserMenu.LoginMenu;
 
 public class LoginController {
-    public LoginMessages login(String username, String password){
-        return LoginMessages.SUCCESS;
+    private LoginMenu menu;
+    public LoginController(LoginMenu menu){
+        this.menu = menu;
+    }
+
+    public void login() throws Exception {
+        String name = menu.username.getText();
+        String pass = menu.password.getText();
+        if (validateEntrance(name, pass)) {
+            User user = Game.getInstance().getUser(name);
+            MainController mainController = new MainController(user);
+            MainMenu.controller = mainController;
+            mainController.run();
+        }
     }
 
     public LoginMessages usernameValidation(String username){
@@ -15,8 +31,16 @@ public class LoginController {
     }
     public LoginMessages passwordValidation(String username, String password){
         if (password.equals("")) return LoginMessages.ENTER_PASSWORD;
-        System.out.println("hi");
-        if (!Game.getInstance().isPasswordValid(username, password)) return LoginMessages.USER_NOT_FOUND;
+        if (!Game.getInstance().isPasswordValid(username, password)) return LoginMessages.PASSWORD_INCORRECT;
         return LoginMessages.SUCCESS;
+    }
+
+    public boolean validateEntrance(String name, String pass){
+        LoginMessages msg1, msg2;
+        msg1 = usernameValidation(name);
+        msg2 = passwordValidation(name, pass);
+        menu.printError(msg1, msg2);
+        return msg1.equals(LoginMessages.SUCCESS) &&
+                msg2.equals(LoginMessages.SUCCESS);
     }
 }

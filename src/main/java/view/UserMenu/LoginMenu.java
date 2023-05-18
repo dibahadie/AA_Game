@@ -1,7 +1,10 @@
 package view.UserMenu;
 
+import Controller.MainController;
 import Controller.UserController.LoginController;
 import Controller.UserController.UserManager;
+import Model.Game;
+import Model.User;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,19 +22,18 @@ import view.Messages.LoginMessages;
 import java.net.URL;
 
 public class LoginMenu extends Application {
-    private static LoginController controller;
+    private LoginController controller = new LoginController(this);
     public Text UsernameErrorPrompt = new Text();
     public Text PasswordErrorPrompt = new Text();
     public TextField username = new TextField();
     public TextField password = new TextField();
     public BorderPane pane;
-    private static Stage classStage;
+    public static Stage classStage;
     public CheckBox rememberUser;
 
     public static void main(String[] args) {
-        controller = new LoginController();
-        launch(args);
         UserManager.load();
+        launch(args);
     }
 
     @Override
@@ -52,13 +54,7 @@ public class LoginMenu extends Application {
 
     public void loginClicked(MouseEvent mouseEvent) throws Exception {
         removeErrors();
-        String name = username.getText();
-        String pass = password.getText();
-        validateInputs();
-        if (controller.login(name, pass).equals(LoginMessages.SUCCESS)) {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.start(LoginMenu.classStage);
-        }
+        controller.login();
     }
 
     public void signupClicked(MouseEvent mouseEvent) throws Exception {
@@ -66,21 +62,14 @@ public class LoginMenu extends Application {
         signupMenu.start(classStage);
     }
 
-    public void validateInputs() {
-        String name = username.getText();
-        String pass = password.getText();
-        LoginMessages msg;
-        msg = controller.usernameValidation(name);
-        if (!msg.equals(LoginMessages.SUCCESS)) printError("* " + msg.getMessage(), UsernameErrorPrompt);
-        msg = controller.passwordValidation(name, pass);
-        if (!msg.equals(LoginMessages.SUCCESS)) printError("* " + msg.getMessage(), PasswordErrorPrompt);
-    }
 
 
-    public void printError(String message, Text prompt) {
-        prompt.setText(message);
+    public void printError(LoginMessages userMessage, LoginMessages passMessage) {
+        UsernameErrorPrompt.setText(userMessage.getMessage());
+        PasswordErrorPrompt.setText(passMessage.getMessage());
         Font font = new Font(10);
-        prompt.setFont(font);
+        UsernameErrorPrompt.setFont(font);
+        PasswordErrorPrompt.setFont(font);
     }
 
     public void removeErrors() {
@@ -89,5 +78,8 @@ public class LoginMenu extends Application {
         PasswordErrorPrompt.setText("");
         UsernameErrorPrompt.setFont(font);
         PasswordErrorPrompt.setFont(font);
+    }
+
+    public void guestEntrance(MouseEvent mouseEvent) {
     }
 }
