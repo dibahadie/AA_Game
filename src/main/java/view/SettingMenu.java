@@ -24,7 +24,7 @@ public class SettingMenu extends Application {
     public static SettingController controller;
     public ChoiceBox gameDifficulty = new ChoiceBox<>();
     public TextField ballNumber = new TextField();
-    public Text BallNumberPrompt = new Text();
+    public Text BallNumberPrompt = new Text("");
     public CheckBox mute;
     public CheckBox blackAndWhite;
     public CheckBox english;
@@ -43,7 +43,9 @@ public class SettingMenu extends Application {
         Font font = new Font(0);
         BallNumberPrompt.setFont(font);
         BallNumberPrompt.setText("");
+
         UserSetting setting = controller.getCurrentUser().getSetting();
+
         gameDifficulty.setValue(setting.getDifficulty());
         ballNumber.setText(setting.getBallNumber());
         mute.setSelected(setting.isMute());
@@ -57,8 +59,10 @@ public class SettingMenu extends Application {
     }
 
     public void printError(SettingMessage ballMsg){
+        // TODO : fix error message issue
         Font font = new Font(10);
-        BallNumberPrompt.setFont(font);
         BallNumberPrompt.setText(ballMsg.getMessage());
+        System.out.println(ballMsg);
+        BallNumberPrompt.setFont(font);
     }
 }

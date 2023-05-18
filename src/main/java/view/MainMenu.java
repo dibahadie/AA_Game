@@ -44,7 +44,8 @@ public class MainMenu extends Application {
     public void continueGame(MouseEvent mouseEvent) {
     }
 
-    public void profileMenu(MouseEvent mouseEvent) {
+    public void profileMenu(MouseEvent mouseEvent) throws Exception {
+        controller.runProfile();
     }
 
     public void scoreBoard(MouseEvent mouseEvent) {

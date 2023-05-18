@@ -1,9 +1,11 @@
 package Controller;
 
+import Controller.UserController.ProfileController;
 import Model.User;
 import view.MainMenu;
 import view.SettingMenu;
 import view.UserMenu.LoginMenu;
+import view.UserMenu.ProfileMenu;
 
 public class MainController {
     private final User currentUser;
@@ -23,6 +25,12 @@ public class MainController {
         SettingMenu menu = new SettingMenu();
         SettingController settingController = new SettingController(currentUser, menu);
         settingController.run();
+    }
+
+    public void runProfile() throws Exception {
+        ProfileMenu menu = new ProfileMenu();
+        ProfileController profileController = new ProfileController(currentUser, menu);
+        profileController.run();
     }
 
     public User getCurrentUser() {

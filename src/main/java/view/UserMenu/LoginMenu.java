@@ -62,8 +62,6 @@ public class LoginMenu extends Application {
         signupMenu.start(classStage);
     }
 
-
-
     public void printError(LoginMessages userMessage, LoginMessages passMessage) {
         UsernameErrorPrompt.setText(userMessage.getMessage());
         PasswordErrorPrompt.setText(passMessage.getMessage());

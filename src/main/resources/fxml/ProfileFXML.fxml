@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="view.UserMenu.ProfileMenu"
+      prefHeight="400.0" prefWidth="600.0" id="mainPain"
+      style="-fx-background-color : #EFEEE0"
+      spacing="7"
+      alignment="CENTER">
+
+    <HBox alignment="CENTER" prefWidth="190">
+        <Text text="username : " wrappingWidth="150"/>
+        <TextField fx:id="username" promptText="enter ball number" prefWidth="40"/>
+    </HBox>
+
+    <HBox alignment="CENTER" prefWidth="190">
+        <Text text="password : " wrappingWidth="150"/>
+        <TextField fx:id="password" promptText="enter ball number" prefWidth="40"/>
+    </HBox>
+    <Button text="back" prefWidth="190"
+            style="-fx-background-radius: 0; -fx-background-color: lightgray;"
+            onMouseClicked="#mainMenu"/>
+
+</VBox>

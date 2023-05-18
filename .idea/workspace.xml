@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/ProfileFXML.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/SettingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SettingMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/SettingFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/SettingFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/ProfileMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684409706133</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="setting can be saved">
+      <created>1684424805227</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684424805227</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -194,7 +200,8 @@
     <MESSAGE value="added userManaged functionalities" />
     <MESSAGE value="added some setting functionalities" />
     <MESSAGE value="setting options completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="setting options completed" />
+    <MESSAGE value="setting can be saved" />
+    <option name="LAST_COMMIT_MESSAGE" value="setting can be saved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
