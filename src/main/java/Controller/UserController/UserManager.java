@@ -46,6 +46,14 @@ public class UserManager {
         JsonArray usersArray = jsonObject.getAsJsonArray("users");
         for (JsonElement element : usersArray)
             Game.getInstance().addUser(gson.fromJson(element, User.class));
+        createDefaultUser();
+    }
+
+    private static void createDefaultUser(){
+        if (Game.getInstance().getUser("default") == null){
+            User user = new User("default", "dafault");
+            Game.getInstance().addUser(user);
+        }
     }
 
 

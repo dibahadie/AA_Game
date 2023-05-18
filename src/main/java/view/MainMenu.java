@@ -16,23 +16,29 @@ import java.net.URL;
 
 public class MainMenu extends Application {
     public Button newGame;
-    private BorderPane pane;
+    public Button profileMenu;
+    @FXML
+    public BorderPane mainPane;
     public static MainController controller;
     @Override
     public void start(Stage stage) throws Exception {
-        pane = FXMLLoader.load(
+        mainPane = FXMLLoader.load(
                 new URL(LoginMenu.class.getResource("/fxml/MainFXML.fxml").toExternalForm()));
-        Scene scene = new Scene(pane);
+        Scene scene = new Scene(mainPane);
         stage.setScene(scene);
         stage.show();
     }
 
     @FXML
     public void initialize(){
-
+        if (controller.isGuest()) {
+            profileMenu.setVisible(false);
+            profileMenu.setManaged(false);
+        }
     }
 
     public void newGame(MouseEvent mouseEvent) {
+
     }
 
     public void continueGame(MouseEvent mouseEvent) {

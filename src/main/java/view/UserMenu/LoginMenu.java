@@ -80,6 +80,7 @@ public class LoginMenu extends Application {
         PasswordErrorPrompt.setFont(font);
     }
 
-    public void guestEntrance(MouseEvent mouseEvent) {
+    public void guestEntrance(MouseEvent mouseEvent) throws Exception {
+        controller.enterAsGuest();
     }
 }

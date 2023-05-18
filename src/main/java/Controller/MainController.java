@@ -7,9 +7,11 @@ import view.UserMenu.LoginMenu;
 
 public class MainController {
     private final User currentUser;
+    private boolean isGuest;
 
-    public MainController(User user){
+    public MainController(User user, boolean isGuest){
         this.currentUser = user;
+        this.isGuest = isGuest;
     }
 
     public void run() throws Exception {
@@ -25,5 +27,9 @@ public class MainController {
 
     public User getCurrentUser() {
         return currentUser;
+    }
+
+    public boolean isGuest() {
+        return isGuest;
     }
 }

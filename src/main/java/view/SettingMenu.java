@@ -22,7 +22,6 @@ import java.net.URL;
 
 public class SettingMenu extends Application {
     public static SettingController controller;
-    @FXML
     public ChoiceBox gameDifficulty = new ChoiceBox<>();
     public TextField ballNumber = new TextField();
     public Text BallNumberPrompt = new Text();
@@ -43,6 +42,7 @@ public class SettingMenu extends Application {
     public void initialize(){
         Font font = new Font(0);
         BallNumberPrompt.setFont(font);
+        BallNumberPrompt.setText("");
         UserSetting setting = controller.getCurrentUser().getSetting();
         gameDifficulty.setValue(setting.getDifficulty());
         ballNumber.setText(setting.getBallNumber());

@@ -15,7 +15,7 @@
       fx:controller="view.SettingMenu"
       prefHeight="400.0" prefWidth="600.0" id="mainPain"
       style="-fx-background-color : #EFEEE0"
-      spacing="5"
+      spacing="7"
       alignment="CENTER">
 
     <HBox alignment="CENTER" prefWidth="190">

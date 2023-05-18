@@ -18,7 +18,7 @@ public class LoginController {
         String pass = menu.password.getText();
         if (validateEntrance(name, pass)) {
             User user = Game.getInstance().getUser(name);
-            MainController mainController = new MainController(user);
+            MainController mainController = new MainController(user, false);
             MainMenu.controller = mainController;
             mainController.run();
         }
@@ -42,5 +42,12 @@ public class LoginController {
         menu.printError(msg1, msg2);
         return msg1.equals(LoginMessages.SUCCESS) &&
                 msg2.equals(LoginMessages.SUCCESS);
+    }
+
+    public void enterAsGuest() throws Exception {
+        User user = Game.getInstance().getUser("default");
+        MainController mainController = new MainController(user, true);
+        MainMenu.controller = mainController;
+        mainController.run();
     }
 }
