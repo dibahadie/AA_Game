@@ -7,18 +7,29 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import view.Messages.SettingMessage;
 import view.UserMenu.LoginMenu;
 
 import java.net.URL;
 
 public class SettingMenu extends Application {
+    public static SettingController controller;
     @FXML
     public ChoiceBox gameDifficulty = new ChoiceBox<>();
-    public static SettingController controller;
+    public TextField ballNumber = new TextField();
+    public Text BallNumberPrompt = new Text();
+    public CheckBox mute;
+    public CheckBox blackAndWhite;
+    public CheckBox english;
+
     @Override
     public void start(Stage stage) throws Exception {
         VBox box = FXMLLoader.load(
@@ -30,13 +41,24 @@ public class SettingMenu extends Application {
 
     @FXML
     public void initialize(){
+        Font font = new Font(0);
+        BallNumberPrompt.setFont(font);
         UserSetting setting = controller.getCurrentUser().getSetting();
         gameDifficulty.setValue(setting.getDifficulty());
+        ballNumber.setText(setting.getBallNumber());
+        mute.setSelected(setting.isMute());
+        blackAndWhite.setSelected(setting.isBlackAndWhite());
+        english.setSelected(setting.isEnglish());
     }
 
     public void mainMenu(MouseEvent mouseEvent) throws Exception {
-        UserSetting newSetting = new UserSetting();
-        newSetting.setDifficulty(((String) gameDifficulty.getValue()).toUpperCase());
-        controller.mainMenu(newSetting);
+        controller.mainMenu(ballNumber.getText(), gameDifficulty.getValue().toString(),
+                mute.isSelected(), english.isSelected(), blackAndWhite.isSelected());
+    }
+
+    public void printError(SettingMessage ballMsg){
+        Font font = new Font(10);
+        BallNumberPrompt.setFont(font);
+        BallNumberPrompt.setText(ballMsg.getMessage());
     }
 }

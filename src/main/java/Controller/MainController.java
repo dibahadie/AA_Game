@@ -2,6 +2,7 @@ package Controller;
 
 import Model.User;
 import view.MainMenu;
+import view.SettingMenu;
 import view.UserMenu.LoginMenu;
 
 public class MainController {
@@ -17,7 +18,8 @@ public class MainController {
     }
 
     public void runSetting() throws Exception {
-        SettingController settingController = new SettingController(currentUser);
+        SettingMenu menu = new SettingMenu();
+        SettingController settingController = new SettingController(currentUser, menu);
         settingController.run();
     }
 

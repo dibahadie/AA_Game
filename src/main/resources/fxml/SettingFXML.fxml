@@ -18,7 +18,7 @@
       spacing="5"
       alignment="CENTER">
 
-    <HBox alignment="CENTER">
+    <HBox alignment="CENTER" prefWidth="190">
         <Text text="game difficulty level : "/>
         <ChoiceBox style="-fx-background-radius: 0; -fx-background-color: lightgray;"
                    fx:id="gameDifficulty">
@@ -32,9 +32,18 @@
         </ChoiceBox>
     </HBox>
 
-    <Button text="create account" prefWidth="160"
-            style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
-    <Button text="back" prefWidth="160"
+    <HBox alignment="CENTER" prefWidth="190">
+        <Text text="game ball number : " wrappingWidth="150"/>
+        <TextField fx:id="ballNumber" promptText="enter ball number" prefWidth="40"/>
+    </HBox>
+    <Text fx:id="BallNumberPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>
+    <CheckBox text="mute" fx:id="mute"
+              style="-fx-background-radius: 0;" prefWidth="190"/>
+    <CheckBox text="black and white graphic" fx:id="blackAndWhite"
+              style="-fx-background-radius: 0;" prefWidth="190"/>
+    <CheckBox text="English language" fx:id="english"
+              style="-fx-background-radius: 0;" prefWidth="190"/>
+    <Button text="back" prefWidth="190"
             style="-fx-background-radius: 0; -fx-background-color: lightgray;"
             onMouseClicked="#mainMenu"/>
 
