@@ -2,7 +2,9 @@ package Controller.UserController;
 
 import Model.Game;
 import Model.User;
+import Utils.Validation;
 import view.Messages.SignupMessage;
+import view.UserMenu.LoginMenu;
 import view.UserMenu.SignupMenu;
 
 public class SignupController {
@@ -10,27 +12,24 @@ public class SignupController {
     public SignupController(SignupMenu menu){
         this.menu = menu;
     }
-    public SignupMessage usernameValidation(String username){
-        if (!username.matches("\\S+")) return SignupMessage.INVALID_CHARACTER;
-        if (Game.getInstance().doesUserExist(username)) return SignupMessage.TAKEN_USERNAME;
-        return SignupMessage.SUCCESS;
-    }
-    public SignupMessage passwordValidation(String username, String password){
-        if (!password.matches(".*[a-z].*")) return SignupMessage.NO_LOWERCASE;
-        if (!password.matches(".*[A-Z].*")) return SignupMessage.NO_UPPERCASE;
-        if (!password.matches(".*[0-9].*")) return SignupMessage.NO_NUMBER;
-        if (!password.matches(".*[!@#$%^&*].*")) return SignupMessage.NO_SIGN;
-        if (!password.matches(".{4}.*")) return SignupMessage.SHORT_PASSWORD;
-        return SignupMessage.SUCCESS;
+
+    public void signup(String username, String password, String confirmation) throws Exception {
+        if (validateInputs(username, password, confirmation)){
+            User user = new User(username, password);
+            Game.getInstance().addUser(user);
+            LoginMenu loginMenu = new LoginMenu();
+            loginMenu.start(SignupMenu.stage);
+        }
     }
 
-    public SignupMessage passwordConfirmValidation(String pass, String confirm){
-        if (pass.equals(confirm)) return SignupMessage.SUCCESS;
-        else return SignupMessage.CONFIRM_NO_MATCH;
-    }
-
-    public void signup(String username, String password){
-        User user = new User(username, password);
-        Game.getInstance().addUser(user);
+    public boolean validateInputs(String name, String pass, String confirm) {
+        SignupMessage msg1, msg2, msg3;
+        msg1 = Validation.usernameValidation(name);
+        msg2 = Validation.passwordValidation(name, pass);
+        msg3 = Validation.passwordConfirmValidation(pass, confirm);
+        menu.printErrors(msg1, msg2, msg3);
+        return msg1.equals(SignupMessage.SUCCESS) &&
+                msg2.equals(SignupMessage.SUCCESS) &&
+                msg3.equals(SignupMessage.SUCCESS);
     }
 }

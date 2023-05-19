@@ -12,7 +12,6 @@
 <?import javafx.collections.FXCollections?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="view.SettingMenu"
       prefHeight="400.0" prefWidth="600.0" id="mainPain"
       style="-fx-background-color : #EFEEE0"
       spacing="7"
@@ -37,7 +36,7 @@
         <TextField fx:id="ballNumber" promptText="enter ball number" prefWidth="40"/>
     </HBox>
 
-    <Text fx:id="BallNumberPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>
+    <Text fx:id="BallNumberPrompt" style="-fx-text-fill : red;" wrappingWidth="190"/>
 
     <CheckBox text="mute" fx:id="mute"
               style="-fx-background-radius: 0;" prefWidth="190"/>
@@ -47,6 +46,6 @@
               style="-fx-background-radius: 0;" prefWidth="190"/>
     <Button text="back" prefWidth="190"
             style="-fx-background-radius: 0; -fx-background-color: lightgray;"
-            onMouseClicked="#mainMenu"/>
+            fx:id="backButton"/>
 
 </VBox>

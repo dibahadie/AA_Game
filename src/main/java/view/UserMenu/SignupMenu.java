@@ -1,6 +1,7 @@
 package view.UserMenu;
 
 import Controller.UserController.SignupController;
+import Model.User;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,11 +53,8 @@ public class SignupMenu extends Application {
         removeErrors();
         String name = username.getText();
         String pass = password.getText();
-        if (validateInputs()){
-            controller.signup(name, pass);
-            LoginMenu loginMenu = new LoginMenu();
-            loginMenu.start(SignupMenu.stage);
-        }
+        String confirm = passwordConfirmation.getText();
+        controller.signup(name, pass, confirm);
     }
 
     public void enterLoginMenu(MouseEvent mouseEvent) throws Exception {
@@ -74,25 +72,22 @@ public class SignupMenu extends Application {
         PasswordErrorPrompt.setFont(font);
     }
 
-    public void printError(String message, Text prompt){
-        prompt.setText(message);
+    public void printErrors(SignupMessage userMsg, SignupMessage passMsg, SignupMessage confirmMsg){
+        // TODO : fully check errors in the end
         Font font = new Font(10);
-        prompt.setFont(font);
+        if (userMsg != SignupMessage.SUCCESS){
+            UsernameErrorPrompt.setText("* " + userMsg.getMessage());
+            UsernameErrorPrompt.setFont(font);
+        }
+        if (passMsg != SignupMessage.SUCCESS){
+            PasswordErrorPrompt.setText("* " + passMsg.getMessage());
+            PasswordErrorPrompt.setFont(font);
+        }
+        if (confirmMsg != SignupMessage.SUCCESS){
+            ConfirmationErrorPrompt.setText("* " + confirmMsg.getMessage());
+            ConfirmationErrorPrompt.setFont(font);
+        }
     }
 
-    public boolean validateInputs() {
-        String name = username.getText();
-        String pass = password.getText();
-        String confirm = passwordConfirmation.getText();
-        SignupMessage msg1, msg2, msg3;
-        msg1 = controller.usernameValidation(name);
-        if (!msg1.equals(SignupMessage.SUCCESS)) printError("* " + msg1.getMessage(), UsernameErrorPrompt);
-        msg2 = controller.passwordValidation(name, pass);
-        if (!msg2.equals(SignupMessage.SUCCESS)) printError("* " + msg2.getMessage(), PasswordErrorPrompt);
-        msg3 = controller.passwordConfirmValidation(pass, confirm);
-        if (!msg3.equals(SignupMessage.SUCCESS)) printError("* " + msg3.getMessage(), ConfirmationErrorPrompt);
-        return msg1.equals(SignupMessage.SUCCESS) &&
-                msg2.equals(SignupMessage.SUCCESS) &&
-                msg3.equals(SignupMessage.SUCCESS);
-    }
+
 }

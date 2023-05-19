@@ -38,4 +38,8 @@ public class User {
         this.setting = setting;
         UserManager.updateUsers();
     }
+
+    public String getPassword() {
+        return password;
+    }
 }

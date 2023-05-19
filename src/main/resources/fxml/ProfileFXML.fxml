@@ -12,23 +12,28 @@
 <?import javafx.collections.FXCollections?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="view.UserMenu.ProfileMenu"
       prefHeight="400.0" prefWidth="600.0" id="mainPain"
       style="-fx-background-color : #EFEEE0"
       spacing="7"
       alignment="CENTER">
 
     <HBox alignment="CENTER" prefWidth="190">
-        <Text text="username : " wrappingWidth="150"/>
-        <TextField fx:id="username" promptText="enter ball number" prefWidth="40"/>
+        <Text text="username : " wrappingWidth="80"/>
+        <TextField fx:id="username" promptText="username" prefWidth="110"/>
     </HBox>
+    <Text fx:id="UsernameErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="190"/>
 
     <HBox alignment="CENTER" prefWidth="190">
-        <Text text="password : " wrappingWidth="150"/>
-        <TextField fx:id="password" promptText="enter ball number" prefWidth="40"/>
+        <Text text="password : " wrappingWidth="80"/>
+        <TextField fx:id="password" promptText="password" prefWidth="110"/>
     </HBox>
+    <Text fx:id="PasswordErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="190"/>
+
+    <Button text="logout" prefWidth="190"
+            style="-fx-background-radius: 0; -fx-background-color: lightgray;"
+            fx:id="logoutButton"/>
     <Button text="back" prefWidth="190"
             style="-fx-background-radius: 0; -fx-background-color: lightgray;"
-            onMouseClicked="#mainMenu"/>
+            fx:id="backButton"/>
 
 </VBox>
