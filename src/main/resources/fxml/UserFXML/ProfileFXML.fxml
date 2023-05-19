@@ -32,6 +32,9 @@
     <Button text="logout" prefWidth="190"
             style="-fx-background-radius: 0; -fx-background-color: lightgray;"
             fx:id="logoutButton"/>
+    <Button text="delete account" prefWidth="190"
+            style="-fx-background-radius: 0; -fx-background-color: lightgray;"
+            fx:id="deleteAccountButton"/>
     <Button text="back" prefWidth="190"
             style="-fx-background-radius: 0; -fx-background-color: lightgray;"
             fx:id="backButton"/>

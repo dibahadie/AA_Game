@@ -1,7 +1,6 @@
 package view.UserMenu;
 
 import Controller.UserController.SignupController;
-import Model.User;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import view.Messages.LoginMessages;
 import view.Messages.SignupMessage;
 
 import java.net.URL;
@@ -32,7 +30,7 @@ public class SignupMenu extends Application {
         controller = new SignupController(this);
         SignupMenu.stage = stage;
         pane = FXMLLoader.load(
-                new URL(LoginMenu.class.getResource("/fxml/SignupFXML.fxml").toExternalForm()));
+                new URL(LoginMenu.class.getResource("/fxml/UserFXML/SignupFXML.fxml").toExternalForm()));
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.show();

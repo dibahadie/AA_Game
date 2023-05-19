@@ -7,6 +7,7 @@ import Utils.Validation;
 import view.MainMenu;
 import view.Messages.LoginMessages;
 import view.Messages.SignupMessage;
+import view.UserMenu.AccountDeletionMenu;
 import view.UserMenu.LoginMenu;
 import view.UserMenu.ProfileMenu;
 
@@ -20,6 +21,7 @@ public class ProfileController {
 
     public void run() throws Exception {
         ProfileMenu.controller = this;
+        AccountDeletionMenu.controller = this;
         menu.start(LoginMenu.classStage);
     }
 
@@ -61,5 +63,20 @@ public class ProfileController {
             LoginMenu loginMenu = new LoginMenu();
             loginMenu.start(LoginMenu.classStage);
         }
+    }
+
+    public void runDeleteAccount() throws Exception {
+        AccountDeletionMenu accountDeletionMenu = new AccountDeletionMenu();
+        accountDeletionMenu.start(LoginMenu.classStage);
+    }
+
+    public void deleteAccount() throws Exception {
+        Game.getInstance().removeUser(currentUser.getUsername());
+        LoginMenu loginMenu = new LoginMenu();
+        loginMenu.start(LoginMenu.classStage);
+    }
+
+    public void cancelDeletation() throws Exception {
+        menu.start(LoginMenu.classStage);
     }
 }

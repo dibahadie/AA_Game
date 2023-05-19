@@ -30,6 +30,11 @@ public class Game {
         UserManager.updateUsers();
     }
 
+    public void removeUser(String username){
+        users.remove(username);
+        UserManager.updateUsers();
+    }
+
     public User getUser(String username){
         return users.get(username);
     }

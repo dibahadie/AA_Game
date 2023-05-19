@@ -11,27 +11,34 @@
 <?import javafx.scene.text.Text?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.UserMenu.SignupMenu"
+            fx:controller="view.UserMenu.LoginMenu"
             prefHeight="400.0" prefWidth="600.0" id="mainPain"
             style="-fx-background-color : #EFEEE0">
-
     <center>
         <VBox alignment="CENTER" fillWidth="false" spacing="5">
             <ImageView fitHeight="100" fitWidth="100"
-                       preserveRatio="true" pickOnBounds="true">
-                <Image url= "@../pictures/logo.png"/>
+            preserveRatio="true" pickOnBounds="true">
+                    <Image url= "@../../pictures/logo.png"/>
             </ImageView>
+
             <TextField alignment="CENTER" promptText="username" fx:id="username"/>
             <Text fx:id="UsernameErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>
+
             <TextField alignment="CENTER" promptText="password" fx:id="password"/>
             <Text fx:id="PasswordErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>
-            <TextField alignment="CENTER" promptText="password confirmation" fx:id="passwordConfirmation"/>
-            <Text fx:id="ConfirmationErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>
+
+            <CheckBox text="remember me" fx:id="rememberUser"
+                style="-fx-background-radius: 0;" prefWidth="160"/>
             <Separator prefHeight="10"/>
-            <Button text="create account" prefWidth="160" onMouseClicked="#signupClicked"
+
+            <Button text="login" prefWidth="160" onMouseClicked="#loginClicked"
+                style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+            <Button text="signup" prefWidth="160" onMouseClicked="#signupClicked"
                     style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
-            <Button text="back" prefWidth="160" onMouseClicked="#enterLoginMenu"
+            <Button text="start as a guest" prefWidth="160" onMouseClicked="#guestEntrance"
                     style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
         </VBox>
     </center>
+
+
 </BorderPane>
