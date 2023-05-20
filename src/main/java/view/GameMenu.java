@@ -3,10 +3,14 @@ package view;
 import Controller.GameController;
 import javafx.animation.*;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
@@ -21,8 +25,10 @@ import javafx.util.Duration;
 import view.UserMenu.LoginMenu;
 
 import java.net.URL;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GameMenu extends Application {
     public static GameController controller;
@@ -42,6 +48,7 @@ public class GameMenu extends Application {
         initializeThrowingBalls(pane);
 
         Scene scene = new Scene(pane);
+        addThrowBallEvent(scene);
         stage.setScene(scene);
         stage.show();
     }
@@ -70,10 +77,10 @@ public class GameMenu extends Application {
             circle.setCenterX(centerCircle.getCenterX() + controller.getBallX(j));
             circle.setCenterY(centerCircle.getCenterY() + controller.getBallY(j));
             circle.setRadius(r);
-            circle.setVisible(true);
             Line line = new Line(centerCircle.getCenterX(), centerCircle.getCenterY(),
                     circle.getCenterX(), circle.getCenterY());
             line.setVisible(true);
+
             addRotationMotion(line);
             addRotationMotion(circle);
             perimeterCircles.getChildren().addAll(circle, line);
@@ -95,6 +102,20 @@ public class GameMenu extends Application {
         timeline.play();
     }
 
+    private void addBallToRotating(StackPane pane){
+        Circle circle = (Circle) pane.getChildren().get(0);
+        Text text = (Text) pane.getChildren().get(1);
+
+        circle.setCenterX(centerCircle.getCenterX());
+        circle.setCenterY(90 + centerCircle.getCenterY());
+
+        perimeterCircles.getChildren().add(pane);
+        throwingCircles.getChildren().remove(pane);
+        addRotationMotion(circle);
+        System.out.println(circle.getTransforms().get(0));
+        System.out.println(perimeterCircles.getChildren().get(0).getTransforms().get(0));
+    }
+
     private void initializeThrowingBalls(Pane pane) {
         throwingCircles = new Group();
         double distance = centerCircle.getCenterY() + 150;
@@ -106,7 +127,7 @@ public class GameMenu extends Application {
             circle.setCenterY(distance + (2 * r + 5) * i);
             circle.setRadius(r);
 
-            Text text = new Text(Integer.toString(i+1));
+            Text text = new Text(Integer.toString(i + 1));
             text.setBoundsType(TextBoundsType.VISUAL);
             text.setStyle("-fx-fill : white;");
             text.setFont(new Font(11));
@@ -121,5 +142,25 @@ public class GameMenu extends Application {
         pane.getChildren().add(throwingCircles);
     }
 
+    private void addThrowBallEvent(Scene scene) {
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.SPACE) {
+                    throwBall();
+                }
+            }
+        });
+    }
 
+    private void throwBall() {
+        StackPane circle = (StackPane) throwingCircles.getChildren().get(0);
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), circle);
+        transition.setByY((-1) * 60);
+        transition.setCycleCount(1);
+        transition.play();
+        transition.setOnFinished(e -> {
+            addBallToRotating(circle);
+        });
+    }
 }

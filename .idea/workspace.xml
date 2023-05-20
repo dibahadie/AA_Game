@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/AA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/GameFXML.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/SignupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/Validation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/LoginFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/LoginFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/SignupFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/SignupFXML.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +28,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -230,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684496604176</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="game initialization">
+      <created>1684579194248</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1684579194249</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -244,7 +242,8 @@
     <MESSAGE value="entrance as guest" />
     <MESSAGE value="Added logout and change username and password to profileMenu" />
     <MESSAGE value="delete account added" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete account added" />
+    <MESSAGE value="game initialization" />
+    <option name="LAST_COMMIT_MESSAGE" value="game initialization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
