@@ -1,7 +1,7 @@
 package Controller.UserController;
 
 import Controller.MainController;
-import Model.Game;
+import Model.AA;
 import Model.User;
 import Utils.Validation;
 import view.MainMenu;
@@ -18,7 +18,7 @@ public class LoginController {
         String name = menu.username.getText();
         String pass = menu.password.getText();
         if (validateEntrance(name, pass)) {
-            User user = Game.getInstance().getUser(name);
+            User user = AA.getInstance().getUser(name);
             MainController mainController = new MainController(user, false);
             MainMenu.controller = mainController;
             mainController.run();
@@ -35,7 +35,7 @@ public class LoginController {
     }
 
     public void enterAsGuest() throws Exception {
-        User user = Game.getInstance().getUser("default");
+        User user = AA.getInstance().getUser("default");
         MainController mainController = new MainController(user, true);
         MainMenu.controller = mainController;
         mainController.run();

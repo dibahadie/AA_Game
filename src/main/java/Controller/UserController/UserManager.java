@@ -1,13 +1,11 @@
 package Controller.UserController;
 
-import Model.Game;
+import Model.AA;
 import Model.User;
 import Settings.Paths;
 import com.google.gson.*;
 
 import java.io.*;
-import java.lang.reflect.Field;
-import java.util.HashMap;
 
 public class UserManager {
 
@@ -17,7 +15,7 @@ public class UserManager {
         Gson gson = new Gson();
         JsonArray jsonArray = new JsonArray();
         JsonObject jsonObject = new JsonObject();
-        for (User user : Game.getUsers().values()){
+        for (User user : AA.getUsers().values()){
             jsonArray.add(gson.toJsonTree(user).getAsJsonObject());
         }
         jsonObject.add("users", jsonArray);
@@ -45,14 +43,14 @@ public class UserManager {
             return;
         JsonArray usersArray = jsonObject.getAsJsonArray("users");
         for (JsonElement element : usersArray)
-            Game.getInstance().addUser(gson.fromJson(element, User.class));
+            AA.getInstance().addUser(gson.fromJson(element, User.class));
         createDefaultUser();
     }
 
     private static void createDefaultUser(){
-        if (Game.getInstance().getUser("default") == null){
+        if (AA.getInstance().getUser("default") == null){
             User user = new User("default", "dafault");
-            Game.getInstance().addUser(user);
+            AA.getInstance().addUser(user);
         }
     }
 

@@ -37,8 +37,8 @@ public class MainMenu extends Application {
         }
     }
 
-    public void newGame(MouseEvent mouseEvent) {
-
+    public void newGame(MouseEvent mouseEvent) throws Exception {
+        controller.runGame();
     }
 
     public void continueGame(MouseEvent mouseEvent) {

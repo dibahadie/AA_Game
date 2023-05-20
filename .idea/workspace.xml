@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/AccountDeletionMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/AccountDeletionFXML.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/AA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/GameFXML.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/SignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/SignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/ProfileMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/SignupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/SignupMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/LoginFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/LoginFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ProfileFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/ProfileFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/SignupFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/SignupFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/Validation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +36,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="b1e6c7af-318f-422a-859b-24722c3fe4e0" />
+        <option name="url" value="https://github.com/dibahadie/AA_Game.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -208,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684477948975</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="delete account added">
+      <created>1684496604176</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684496604176</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -221,7 +243,8 @@
     <MESSAGE value="setting can be saved" />
     <MESSAGE value="entrance as guest" />
     <MESSAGE value="Added logout and change username and password to profileMenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added logout and change username and password to profileMenu" />
+    <MESSAGE value="delete account added" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete account added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

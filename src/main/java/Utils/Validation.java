@@ -1,6 +1,6 @@
 package Utils;
 
-import Model.Game;
+import Model.AA;
 import view.Messages.LoginMessages;
 import view.Messages.SignupMessage;
 
@@ -16,18 +16,18 @@ public class Validation {
 
     public static LoginMessages usernameValidationLogin(String username){
         if (username.equals("")) return LoginMessages.ENTER_USERNAME;
-        if (!Game.getInstance().doesUserExist(username)) return LoginMessages.USER_NOT_FOUND;
+        if (!AA.getInstance().doesUserExist(username)) return LoginMessages.USER_NOT_FOUND;
         return LoginMessages.SUCCESS;
     }
     public static LoginMessages passwordValidationLogin(String username, String password){
         if (password.equals("")) return LoginMessages.ENTER_PASSWORD;
-        if (!Game.getInstance().isPasswordValid(username, password)) return LoginMessages.PASSWORD_INCORRECT;
+        if (!AA.getInstance().isPasswordValid(username, password)) return LoginMessages.PASSWORD_INCORRECT;
         return LoginMessages.SUCCESS;
     }
 
     public static SignupMessage usernameValidation(String username){
         if (!username.matches("\\S+")) return SignupMessage.INVALID_CHARACTER;
-        if (Game.getInstance().doesUserExist(username)) return SignupMessage.TAKEN_USERNAME;
+        if (AA.getInstance().doesUserExist(username)) return SignupMessage.TAKEN_USERNAME;
         return SignupMessage.SUCCESS;
     }
     public static SignupMessage passwordValidation(String username, String password){

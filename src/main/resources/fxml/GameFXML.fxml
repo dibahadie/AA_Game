@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+<?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.shape.Circle?>
+<Pane xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      prefHeight="400.0" prefWidth="600.0" id="mainPain"
+      style="-fx-background-color : #EFEEE0">
+
+    <Group fx:id="perimeterCircles"/>
+    <Circle style="-fx-background-color : #000000" radius="50" fx:id="centerCircle"/>
+    <Circle style="-fx-background-color : #000000" radius="100" fx:id="invisibleCircle"/>
+    <Group fx:id="throwingCircles"/>
+
+</Pane>

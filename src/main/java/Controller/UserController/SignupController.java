@@ -1,6 +1,6 @@
 package Controller.UserController;
 
-import Model.Game;
+import Model.AA;
 import Model.User;
 import Utils.Validation;
 import view.Messages.SignupMessage;
@@ -16,7 +16,7 @@ public class SignupController {
     public void signup(String username, String password, String confirmation) throws Exception {
         if (validateInputs(username, password, confirmation)){
             User user = new User(username, password);
-            Game.getInstance().addUser(user);
+            AA.getInstance().addUser(user);
             LoginMenu loginMenu = new LoginMenu();
             loginMenu.start(SignupMenu.stage);
         }

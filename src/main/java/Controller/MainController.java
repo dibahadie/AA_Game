@@ -1,7 +1,9 @@
 package Controller;
 
 import Controller.UserController.ProfileController;
+import Model.Game;
 import Model.User;
+import view.GameMenu;
 import view.MainMenu;
 import view.SettingMenu;
 import view.UserMenu.LoginMenu;
@@ -22,17 +24,22 @@ public class MainController {
     }
 
     public void runSetting() throws Exception {
-        SettingMenu menu = new SettingMenu();
-        SettingController settingController = new SettingController(currentUser, menu);
+        SettingMenu settingMenu = new SettingMenu();
+        SettingController settingController = new SettingController(currentUser, settingMenu);
         settingController.run();
     }
 
     public void runProfile() throws Exception {
-        ProfileMenu menu = new ProfileMenu();
-        ProfileController profileController = new ProfileController(currentUser, menu);
+        ProfileMenu profileMenu = new ProfileMenu();
+        ProfileController profileController = new ProfileController(currentUser, profileMenu);
         profileController.run();
     }
 
+    public void runGame() throws Exception {
+        GameMenu gameMenu = new GameMenu();
+        GameController gameController = new GameController(currentUser, gameMenu, new Game(currentUser));
+        gameController.run();
+    }
     public User getCurrentUser() {
         return currentUser;
     }

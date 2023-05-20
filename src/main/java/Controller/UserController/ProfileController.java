@@ -1,11 +1,9 @@
 package Controller.UserController;
 
-import Controller.MainController;
-import Model.Game;
+import Model.AA;
 import Model.User;
 import Utils.Validation;
 import view.MainMenu;
-import view.Messages.LoginMessages;
 import view.Messages.SignupMessage;
 import view.UserMenu.AccountDeletionMenu;
 import view.UserMenu.LoginMenu;
@@ -71,7 +69,7 @@ public class ProfileController {
     }
 
     public void deleteAccount() throws Exception {
-        Game.getInstance().removeUser(currentUser.getUsername());
+        AA.getInstance().removeUser(currentUser.getUsername());
         LoginMenu loginMenu = new LoginMenu();
         loginMenu.start(LoginMenu.classStage);
     }
