@@ -26,7 +26,7 @@ import java.util.Collections;
 
 public class GameMenu extends Application {
     public static GameController controller;
-    public Circle centerCircle, invisibleCircle;
+    public Circle centerCircle;
     public Pane pane;
     public StackPane perimeterCircles;
     public Group throwingCircles;
@@ -59,14 +59,10 @@ public class GameMenu extends Application {
         centerCircle.setCenterY(200);
         centerCircle.setStyle("-fx-background-color : #000000");
         centerCircle.setRadius(50);
-        invisibleCircle.setCenterX(300);
-        invisibleCircle.setCenterY(200);
 
         perimeterCircles = new StackPane();
 
         double r = controller.getRadius();
-        invisibleCircle.setVisible(false);
-        invisibleCircle.setRadius(100 - r);
 
         perimeterCircles.getChildren().add(centerCircle);
         for (int i = 0; i < 5; i++) {
@@ -75,8 +71,7 @@ public class GameMenu extends Application {
             circle.setTranslateX(centerCircle.getTranslateX() + controller.getBallX(j));
             circle.setTranslateY(centerCircle.getTranslateY() + controller.getBallY(j));
             circle.setRadius(r);
-            Line line = createLine(circle);
-            perimeterCircles.getChildren().addAll(circle, line);
+            perimeterCircles.getChildren().addAll(circle, createLine(circle));
         }
 
         perimeterCircles.setLayoutY(80);
@@ -92,12 +87,12 @@ public class GameMenu extends Application {
         pane.getChildren().add(perimeterCircles);
     }
 
-    private Line createLine(Circle circle){
+    private Line createLine(Circle circle) {
         Line line = new Line();
-        line.setTranslateX(circle.getTranslateX()/2);
-        line.setTranslateY(circle.getTranslateY()/2);
+        line.setTranslateX(circle.getTranslateX() / 2);
+        line.setTranslateY(circle.getTranslateY() / 2);
         line.setScaleY(100);
-        double angle = Math.atan(line.getTranslateY()/line.getTranslateX());
+        double angle = Math.atan(line.getTranslateY() / line.getTranslateX());
         angle *= 180 / Math.PI;
         line.setRotate(90 + angle);
         return line;
@@ -138,10 +133,13 @@ public class GameMenu extends Application {
     }
 
     private void throwBall() {
+        if (throwingCircles.getChildren().isEmpty()) {
+            return;
+        }
         // TODO : handle when there are no balls left
         StackPane circle = (StackPane) throwingCircles.getChildren().get(0);
         double d = controller.getRadius() * 2 + 5;
-        for (Node child : throwingCircles.getChildren()){
+        for (Node child : throwingCircles.getChildren()) {
             TranslateTransition transition = new TranslateTransition(Duration.seconds(0.2), child);
             transition.setByY((-1) * d);
             transition.setCycleCount(1);
@@ -153,26 +151,25 @@ public class GameMenu extends Application {
         transition.play();
         transition.setOnFinished(e -> {
             throwingCircles.getChildren().remove(circle);
-            perimeterCircles.getChildren().add(circle);
+            circle.getChildren().add(createLine((Circle) circle.getChildren().get(0)));
             setThrownBallCoordinate(circle);
-            Line line = new Line();
-            Circle ball = (Circle) circle.getChildren().get(0);
-
-            line.setTranslateX(ball.getTranslateX()/2);
-            line.setTranslateY(ball.getTranslateY()/2);
-            line.setScaleY(100);
-//            double angle = Math.atan(line.getTranslateY()/line.getTranslateX());
-//            angle *= 180 / Math.PI;
-//            line.setRotate(90 + angle);
-            perimeterCircles.getChildren().add(line);
         });
     }
 
-    private void setThrownBallCoordinate(StackPane circle){
+    private void setThrownBallCoordinate(StackPane circle) {
         double rotationAngle = (90 - perimeterCircles.getRotate()) * Math.PI / 180;
         double secondAngle = (perimeterCircles.getRotate()) * Math.PI / 180;
         circle.setRotate(secondAngle);
         circle.setTranslateX(Math.cos(rotationAngle) * 100);
         circle.setTranslateY(Math.sin(rotationAngle) * 100);
+        Line line = new Line();
+        line.setTranslateX(Math.cos(rotationAngle) * 50);
+        line.setTranslateY(Math.sin(rotationAngle) * 50);
+        line.setScaleY(100);
+        double angle = Math.atan(line.getTranslateY() / line.getTranslateX());
+        angle *= 180 / Math.PI;
+        line.setRotate(90 + angle);
+        perimeterCircles.getChildren().add(line);
+        perimeterCircles.getChildren().add(circle);
     }
 }
