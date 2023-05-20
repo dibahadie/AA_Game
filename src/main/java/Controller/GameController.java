@@ -37,6 +37,6 @@ public class GameController {
 
     public double getRadius(){
         int allBalls = game.getBallNumber();
-        return (Math.PI * 100 / allBalls) - 3;
+        return (Math.PI * 100 / allBalls) - 4;
     }
 }
