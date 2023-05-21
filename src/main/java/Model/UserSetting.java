@@ -15,7 +15,7 @@ public class UserSetting {
         EASY(6, 1.2, 7),
         NORMAL(3, 1.5, 5),
         HARD(2, 1.8, 3);
-        private double rotationSpeed, windSpeed, iceModeTimer;
+        public double rotationSpeed, windSpeed, iceModeTimer;
         GameDifficulty(double rotationSpeed, double windSpeed, double iceModeTimer){
             this.iceModeTimer = iceModeTimer;
             this.rotationSpeed = rotationSpeed;
