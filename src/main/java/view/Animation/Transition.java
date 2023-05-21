@@ -40,30 +40,35 @@ public class Transition {
     public void scaleBallTransition(StackPane perimeterBalls, Circle centerCircle){
         for (Node ball : perimeterBalls.getChildren()){
             if (!(ball instanceof Line) && !(ball.equals(centerCircle))){
-                ScaleTransition transition = new ScaleTransition(Duration.seconds(1), ball);
-                transition.setFromX(1);
-                transition.setFromY(1);
-                transition.setToX(1.1);
-                transition.setToY(1.1);
-                transition.setAutoReverse(false);
-                transition.setCycleCount(1);
-                transition.setOnFinished(event -> {
-                    if (transition.getFromX() == 1) {
-                        transition.setFromX(1.1);
-                        transition.setFromY(1.1);
-                        transition.setToX(1);
-                        transition.setToY(1);
-                    }else{
-                        transition.setFromX(1);
-                        transition.setFromY(1);
-                        transition.setToX(1.1);
-                        transition.setToY(1.1);
-                    }
-                    transition.play();
-                });
-                transition.play();
+                addScaleTransitionToBall(ball);
             }
         }
+    }
+
+    public void addScaleTransitionToBall(Node node){
+//        TODO : fix this
+        ScaleTransition transition = new ScaleTransition(Duration.seconds(1), node);
+        transition.setFromX(1);
+        transition.setFromY(1);
+        transition.setToX(1.2);
+        transition.setToY(1.2);
+        transition.setAutoReverse(false);
+        transition.setCycleCount(1);
+        transition.setOnFinished(event -> {
+            if (transition.getFromX() == 1) {
+                transition.setFromX(1);
+                transition.setFromY(1);
+                transition.setToX(0.833);
+                transition.setToY(0.833);
+            }else{
+                transition.setFromX(1);
+                transition.setFromY(1);
+                transition.setToX(1.2);
+                transition.setToY(1.2);
+            }
+            transition.play();
+        });
+        transition.play();
     }
     public void fadeTransition(StackPane perimeterCircles){
         FadeTransition transition = new FadeTransition();

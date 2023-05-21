@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -252,8 +248,37 @@
       <option name="project" value="LOCAL" />
       <updated>1684615834612</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="added second and third phase">
+      <created>1684657086904</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1684657086904</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="MVC Structure" />
@@ -270,7 +295,8 @@
     <MESSAGE value="before farzam ruins it" />
     <MESSAGE value="added shooting balls" />
     <MESSAGE value="added shooting balls - fixed line addition bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="added shooting balls - fixed line addition bugs" />
+    <MESSAGE value="added second and third phase" />
+    <option name="LAST_COMMIT_MESSAGE" value="added second and third phase" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

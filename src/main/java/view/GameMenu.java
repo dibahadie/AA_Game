@@ -1,11 +1,9 @@
 package view;
 
 import Controller.GameController;
-import javafx.animation.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.input.KeyCode;
@@ -18,7 +16,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextBoundsType;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import view.Animation.Rotation;
 import view.Animation.Transition;
 import view.UserMenu.LoginMenu;
@@ -30,9 +27,9 @@ import java.util.Collections;
 public class GameMenu extends Application {
     public static GameController controller;
     private static Transition transition;
-    public Circle centerCircle;
+    public Circle centerCircle, blackCircle;
     public Pane pane;
-    public StackPane perimeterCircles;
+    public StackPane perimeterObjects;
     public Group throwingCircles;
     public ProgressBar progressBar;
     int phase = 1;
@@ -63,28 +60,34 @@ public class GameMenu extends Application {
         Collections.shuffle(list);
 
         centerCircle = new Circle();
+        blackCircle = new Circle();
         centerCircle.setCenterX(300);
+        blackCircle.setLayoutX(300);
         centerCircle.setCenterY(200);
-        centerCircle.setStyle("-fx-background-color : #000000");
+        blackCircle.setLayoutY(170);
+        blackCircle.setStyle("-fx-background-color : #000000");
         centerCircle.setRadius(50);
+        blackCircle.setRadius(50);
+        centerCircle.setVisible(false);
 
-        perimeterCircles = new StackPane();
+        perimeterObjects = new StackPane();
 
         double r = controller.getRadius();
 
-        perimeterCircles.getChildren().add(centerCircle);
+        perimeterObjects.getChildren().add(centerCircle);
         for (int i = 0; i < 5; i++) {
             int j = list.get(i);
             Circle circle = new Circle();
             circle.setTranslateX(centerCircle.getTranslateX() + controller.getBallX(j));
             circle.setTranslateY(centerCircle.getTranslateY() + controller.getBallY(j));
             circle.setRadius(r);
-            perimeterCircles.getChildren().addAll(circle, createLine(circle));
+            perimeterObjects.getChildren().addAll(circle, createLine(circle));
         }
-        perimeterCircles.setLayoutY(120);
-        perimeterCircles.setLayoutX(250);
-        Rotation.setFirstPhaseRotation(perimeterCircles);
-        pane.getChildren().add(perimeterCircles);
+        perimeterObjects.setLayoutY(120);
+        perimeterObjects.setLayoutX(250);
+        Rotation.setFirstPhaseRotation(perimeterObjects);
+        pane.getChildren().add(perimeterObjects);
+        pane.getChildren().add(blackCircle);
     }
 
     public Line createLine(Circle circle) {
@@ -115,7 +118,7 @@ public class GameMenu extends Application {
         if (e.getCode() == KeyCode.TAB) {
             if (Math.abs(1 - progressBar.getProgress()) < 0.000001d) {
                 progressBar.setProgress(0);
-                Rotation.setFreezeRotation(controller.getGame().getFreezePause(), perimeterCircles, phase);
+                Rotation.setFreezeRotation(controller.getGame().getFreezePause(), perimeterObjects, phase);
             }
         }
     }
@@ -167,8 +170,8 @@ public class GameMenu extends Application {
     }
 
     public void setThrownBallCoordinate(StackPane circle) {
-        double rotationAngle = (90 - perimeterCircles.getRotate()) * Math.PI / 180;
-        double secondAngle = (perimeterCircles.getRotate()) * Math.PI / 180;
+        double rotationAngle = (90 - perimeterObjects.getRotate()) * Math.PI / 180;
+        double secondAngle = (perimeterObjects.getRotate()) * Math.PI / 180;
         circle.setRotate(secondAngle);
         circle.setTranslateX(Math.cos(rotationAngle) * 150);
         circle.setTranslateY(Math.sin(rotationAngle) * 150);
@@ -179,19 +182,19 @@ public class GameMenu extends Application {
         double angle = Math.atan(line.getTranslateY() / line.getTranslateX());
         angle *= 180 / Math.PI;
         line.setRotate(90 + angle);
-        perimeterCircles.getChildren().add(line);
-        perimeterCircles.getChildren().add(circle);
+        perimeterObjects.getChildren().add(line);
+        perimeterObjects.getChildren().add(circle);
     }
 
     public void updatePhase() {
         int allBalls = controller.getGame().getBallNumber() - 5;
-        int thrownBalls = allBalls - throwingCircles.getChildren().size();
+        int thrownBalls = allBalls - throwingCircles.getChildren().size() + 1;
         if (4 * thrownBalls >= allBalls && 4 * thrownBalls <= 2 * allBalls) {
-            if (phase != 2) Rotation.setSecondPhaseRotation(perimeterCircles);
-            transition.scaleBallTransition(perimeterCircles, centerCircle);
+            if (phase != 2) Rotation.setSecondPhaseRotation(perimeterObjects);
+            transition.scaleBallTransition(perimeterObjects, centerCircle);
             phase = 2;
         } else if (4 * thrownBalls >= 2 * allBalls && 4 * thrownBalls <= 3 * allBalls && phase != 3) {
-            transition.fadeTransition(perimeterCircles);
+            transition.fadeTransition(perimeterObjects);
             phase = 3;
         } else if (4 * thrownBalls >= 3 * allBalls && phase != 4) {
             phase = 4;
