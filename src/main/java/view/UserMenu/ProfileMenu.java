@@ -15,9 +15,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import view.Messages.SignupMessage;
 
+import java.io.File;
 import java.net.URL;
 
 public class ProfileMenu extends Application {
@@ -42,6 +44,8 @@ public class ProfileMenu extends Application {
         setLogoutButtonEvent();
         setDeleteAccountButtonEvent();
         setGameAvatarsEvent();
+        setChooseAvatarEvent(stage);
+
         clearErrors();
         Scene scene = new Scene(box);
         stage.setScene(scene);
@@ -92,6 +96,22 @@ public class ProfileMenu extends Application {
                 controller.runChangeAvatar();
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
+            }
+        });
+    }
+
+    public void setChooseAvatarEvent(Stage stage){
+        chooseAvatar.setOnMouseClicked(e -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Choose an image");
+            FileChooser.ExtensionFilter imageFilter = new
+                    FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.gif");
+            fileChooser.getExtensionFilters().add(imageFilter);
+            File selectedFile = fileChooser.showOpenDialog(stage);
+            if (selectedFile != null) {
+                Image image = new Image(selectedFile.toURI().toString());
+                avatar.setImage(image);
+                controller.setAvatar(selectedFile.toURI().toString());
             }
         });
     }
