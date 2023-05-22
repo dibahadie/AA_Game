@@ -1,0 +1,16 @@
+#UsernameErrorPrompt {
+    -fx-text-fill : red;
+}
+
+Button {
+    -fx-background-radius: 0;
+    -fx-background-color: lightgray;
+}
+
+#ErrorPrompt {
+    -fx-text-fill : red;
+}
+
+#mainPain {
+    -fx-background-color : #EFEEE0
+}

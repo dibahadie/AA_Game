@@ -16,6 +16,9 @@ module AA_Game {
     exports Controller;
     opens Controller to javafx.fxml;
 
+    exports Model;
+    opens Model to javafx.fxml, com.google.gson;
+
     opens Controller.UserController to com.google.gson;
-    opens Model to com.google.gson;
+
 }

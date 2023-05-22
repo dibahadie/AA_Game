@@ -26,10 +26,10 @@ public class SettingController {
     }
 
     public void mainMenu(String ballNumber, String difficulty, boolean mute,
-                         boolean english, boolean BandW) throws Exception {
+                         boolean english, boolean BandW, String mapNumber) throws Exception {
         if (validateInput(ballNumber)){
             UserSetting newSetting = new UserSetting(difficulty, Integer.parseInt(ballNumber),
-                    mute, BandW, english);
+                    mute, BandW, english, mapNumber);
             currentUser.setSetting(newSetting);
             MainMenu mainMenu = new MainMenu();
             mainMenu.start(LoginMenu.classStage);

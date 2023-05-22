@@ -12,8 +12,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="view.UserMenu.LoginMenu"
-            prefHeight="400.0" prefWidth="600.0" id="mainPain"
-            style="-fx-background-color : #EFEEE0">
+            prefHeight="400.0" prefWidth="600.0" id="mainPain">
     <center>
         <VBox alignment="CENTER" fillWidth="false" spacing="5">
             <ImageView fitHeight="100" fitWidth="100"
@@ -22,21 +21,16 @@
             </ImageView>
 
             <TextField alignment="CENTER" promptText="username" fx:id="username"/>
-            <Text fx:id="UsernameErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>
+            <Text fx:id="UsernameErrorPrompt" wrappingWidth="160"
+            id="ErrorPrompt"/>
 
             <PasswordField alignment="CENTER" promptText="password" fx:id="password"/>
-            <Text fx:id="PasswordErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>
+            <Text fx:id="PasswordErrorPrompt" wrappingWidth="160"
+                  id="ErrorPrompt"/>
 
-            <CheckBox text="remember me" fx:id="rememberUser"
-                style="-fx-background-radius: 0;" prefWidth="160"/>
-            <Separator prefHeight="10"/>
-
-            <Button text="login" prefWidth="160" onMouseClicked="#loginClicked"
-                style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
-            <Button text="signup" prefWidth="160" onMouseClicked="#signupClicked"
-                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
-            <Button text="start as a guest" prefWidth="160" onMouseClicked="#guestEntrance"
-                    style="-fx-background-radius: 0; -fx-background-color: lightgray;"/>
+            <Button text="login" prefWidth="160" onMouseClicked="#loginClicked"/>
+            <Button text="signup" prefWidth="160" onMouseClicked="#signupClicked"/>
+            <Button text="start as a guest" prefWidth="160" onMouseClicked="#guestEntrance"/>
         </VBox>
     </center>
 

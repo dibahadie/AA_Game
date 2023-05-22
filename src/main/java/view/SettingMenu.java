@@ -25,7 +25,7 @@ import java.net.URL;
 public class SettingMenu extends Application {
     public static SettingController controller;
     @FXML
-    public ChoiceBox gameDifficulty;
+    public ChoiceBox gameDifficulty, mapNumber;
     @FXML
     public TextField ballNumber;
     @FXML
@@ -62,7 +62,8 @@ public class SettingMenu extends Application {
             public void handle(MouseEvent event) {
                 try {
                     controller.mainMenu(ballNumber.getText(), gameDifficulty.getValue().toString(),
-                            mute.isSelected(), english.isSelected(), blackAndWhite.isSelected());
+                            mute.isSelected(), english.isSelected(), blackAndWhite.isSelected(),
+                            mapNumber.getValue().toString());
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -72,6 +73,7 @@ public class SettingMenu extends Application {
 
     private void setInitialValues(){
         UserSetting setting = controller.getCurrentUser().getSetting();
+        mapNumber.setValue(setting.getMapNumber());
         gameDifficulty.setValue(setting.getDifficulty());
         ballNumber.setText(setting.getBallNumber());
         mute.setSelected(setting.isMute());

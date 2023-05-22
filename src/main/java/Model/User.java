@@ -7,11 +7,15 @@ public class User {
     private String password;
     private UserSetting setting;
     private String avatarPath;
+    private int highScore;
+    private int recordTime;
     public User(String username, String password){
         this.username = username;
         this.password = password;
         setting = new UserSetting();
         avatarPath = DefaultAvatar.getRandomAvatar();
+        highScore = 0;
+        recordTime = 0;
     }
 
     public String getUsername() {
@@ -51,5 +55,25 @@ public class User {
 
     public void setAvatarPath(String avatarPath) {
         this.avatarPath = avatarPath;
+    }
+
+    public int getRank(){
+        return AA.getInstance().getUserRank(this);
+    }
+
+    public int getHighScore() {
+        return highScore;
+    }
+
+    public void setHighScore(int highScore) {
+        this.highScore = highScore;
+    }
+
+    public void setRecordTime(int recordTime) {
+        this.recordTime = recordTime;
+    }
+
+    public int getRecordTime() {
+        return recordTime;
     }
 }

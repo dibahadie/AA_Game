@@ -3,6 +3,7 @@ package Model;
 import Controller.UserController.UserManager;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class AA {
@@ -29,11 +30,13 @@ public class AA {
     public void addUser(User user){
         users.put(user.getUsername(), user);
         UserManager.updateUsers();
+        updateRanking();
     }
 
     public void removeUser(String username){
         users.remove(username);
         UserManager.updateUsers();
+        updateRanking();
     }
 
     public User getUser(String username){
@@ -45,7 +48,18 @@ public class AA {
     }
 
     public static void updateRanking(){
+//        TODO : update ranking at the end of the game
         userRanking.clear();
         userRanking.addAll(users.values());
+        userRanking.remove(users.get("default"));
+        userRanking.sort(Comparator.comparingInt(User :: getHighScore).thenComparing(User :: getRecordTime));
+    }
+
+    public int getUserRank(User user){
+        return userRanking.indexOf(user) + 1;
+    }
+
+    public static ArrayList<User> getUserRanking() {
+        return userRanking;
     }
 }

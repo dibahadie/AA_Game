@@ -4,12 +4,14 @@ public class UserSetting {
     public UserSetting(){
 
     }
-    public UserSetting(String difficulty, int ballNumber, boolean mute, boolean blackAndWhite, boolean english){
+    public UserSetting(String difficulty, int ballNumber, boolean mute, boolean blackAndWhite, boolean english,
+                       String mapNumber){
         this.difficulty = GameDifficulty.valueOf(difficulty.toUpperCase());
         this.ballNumber = ballNumber;
         this.english = english;
         this.blackAndWhite = blackAndWhite;
         this.mute = mute;
+        this.mapNumber = MapNumber.valueOf(mapNumber.toUpperCase());
     }
     enum GameDifficulty{
         EASY(6, 1.2, 7),
@@ -22,11 +24,16 @@ public class UserSetting {
             this.windSpeed = windSpeed;
         }
     }
+
+    enum MapNumber{
+        MAP1, MAP2, MAP3, RANDOM
+    }
     private GameDifficulty difficulty = GameDifficulty.EASY;
     private int ballNumber = 20;
     private boolean mute = false;
     private boolean blackAndWhite = false;
     private boolean english = false;
+    private MapNumber mapNumber = MapNumber.RANDOM;
 
 
     public String getDifficulty() {
@@ -67,5 +74,9 @@ public class UserSetting {
 
     public boolean isMute() {
         return mute;
+    }
+
+    public String getMapNumber() {
+        return mapNumber.name().toLowerCase();
     }
 }

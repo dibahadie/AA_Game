@@ -32,6 +32,21 @@
     </HBox>
 
     <HBox alignment="CENTER" prefWidth="190">
+        <Text text="game difficulty level : "/>
+        <ChoiceBox style="-fx-background-radius: 0; -fx-background-color: lightgray;"
+                   fx:id="mapNumber">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="map1"/>
+                    <String fx:value="map2"/>
+                    <String fx:value="map3"/>
+                    <String fx:value="random"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </HBox>
+
+    <HBox alignment="CENTER" prefWidth="190">
         <Text text="game ball number : " wrappingWidth="150"/>
         <TextField fx:id="ballNumber" promptText="enter ball number" prefWidth="40"/>
     </HBox>

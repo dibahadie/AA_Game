@@ -54,10 +54,7 @@ public class GameMenu extends Application {
 
     public void initializeBalls(Pane pane) {
         // TODO : can be set in the setting
-        int ballNumber = controller.getGame().getBallNumber();
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < ballNumber; i++) list.add(i);
-        Collections.shuffle(list);
+       ArrayList<Integer> list = controller.getBallMap();
 
         centerCircle = new Circle();
         blackCircle = new Circle();

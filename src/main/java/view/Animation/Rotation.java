@@ -11,8 +11,8 @@ import java.util.Random;
 
 public class Rotation {
     public static void setFreezeRotation(double freezePause, StackPane perimeterCircles, int phase){
-        RotateTransition transition = new RotateTransition(Duration.seconds(6), perimeterCircles);
-        int cycleCount = (int) (freezePause/6);
+        RotateTransition transition = new RotateTransition(Duration.seconds(8), perimeterCircles);
+        int cycleCount = (int) (freezePause/8);
         transition.setCycleCount(cycleCount);
         transition.setInterpolator(Interpolator.LINEAR);
         transition.setAutoReverse(false);

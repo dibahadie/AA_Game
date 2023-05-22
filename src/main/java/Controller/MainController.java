@@ -5,6 +5,7 @@ import Model.Game;
 import Model.User;
 import view.GameMenu;
 import view.MainMenu;
+import view.ScoreBoardMenu;
 import view.SettingMenu;
 import view.UserMenu.LoginMenu;
 import view.UserMenu.ProfileMenu;
@@ -39,6 +40,10 @@ public class MainController {
         GameMenu gameMenu = new GameMenu();
         GameController gameController = new GameController(currentUser, gameMenu, new Game(currentUser));
         gameController.run();
+    }
+    public void runScoreboard() throws Exception {
+        ScoreBoardMenu scoreBoardMenu = new ScoreBoardMenu();
+        scoreBoardMenu.start(LoginMenu.classStage);
     }
     public User getCurrentUser() {
         return currentUser;
