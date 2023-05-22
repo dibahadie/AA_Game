@@ -51,6 +51,7 @@ public class UserManager {
         if (AA.getInstance().getUser("default") == null){
             User user = new User("default", "dafault");
             AA.getInstance().addUser(user);
+            updateUsers();
         }
     }
 

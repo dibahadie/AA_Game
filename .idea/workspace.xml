@@ -5,9 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/DefaultAvatar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/SelectAvatarMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/selectAvatar.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pictures/avatars/avatar1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pictures/avatars/avatar2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pictures/avatars/avatar3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pictures/avatars/avatar4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pictures/avatars/avatar5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pictures/avatars/avatar6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pictures/avatars/avatar7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pictures/avatars/avatar8.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/ProfileFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/ProfileFXML.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +32,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="Enum" />
         <option value="FxmlFile" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -43,13 +57,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -59,24 +66,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/diba/Documents/GitHub/AA_Game/src/main/resources/fxml&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/diba/IdeaProjects/AA_Game/src/main/resources/fxml/UserFXML",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\diba\IdeaProjects\AA_Game\src\main\resources\fxml\UserFXML" />
       <recent name="$PROJECT_DIR$/src/main/resources/fxml" />
       <recent name="$PROJECT_DIR$/src/main/java" />
     </key>
@@ -142,6 +156,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683416623273</updated>
+      <workItem from="1684697279605" duration="7257000" />
     </task>
     <task id="LOCAL-00001" summary="MVC Structure">
       <created>1683416709258</created>
@@ -227,58 +242,11 @@
       <option name="project" value="LOCAL" />
       <updated>1684579194249</updated>
     </task>
-    <task id="LOCAL-00013" summary="before farzam ruins it">
-      <created>1684584238352</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1684584238352</updated>
-    </task>
-    <task id="LOCAL-00014" summary="added shooting balls">
-      <created>1684613310054</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1684613310054</updated>
-    </task>
-    <task id="LOCAL-00015" summary="added shooting balls - fixed line addition bugs">
-      <created>1684615834612</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1684615834612</updated>
-    </task>
-    <task id="LOCAL-00016" summary="added second and third phase">
-      <created>1684657086904</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1684657086904</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-        <option value="Space.CommitStatus" />
-      </list>
-    </option>
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="MVC Structure" />
@@ -292,11 +260,7 @@
     <MESSAGE value="Added logout and change username and password to profileMenu" />
     <MESSAGE value="delete account added" />
     <MESSAGE value="game initialization" />
-    <MESSAGE value="before farzam ruins it" />
-    <MESSAGE value="added shooting balls" />
-    <MESSAGE value="added shooting balls - fixed line addition bugs" />
-    <MESSAGE value="added second and third phase" />
-    <option name="LAST_COMMIT_MESSAGE" value="added second and third phase" />
+    <option name="LAST_COMMIT_MESSAGE" value="game initialization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

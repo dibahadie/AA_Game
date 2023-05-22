@@ -10,12 +10,30 @@
 <?import java.net.URL?>
 <?import javafx.scene.text.Text?>
 <?import javafx.collections.FXCollections?>
+<?import javafx.scene.shape.Circle?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       prefHeight="400.0" prefWidth="600.0" id="mainPain"
       style="-fx-background-color : #EFEEE0"
       spacing="7"
       alignment="CENTER">
+
+    <ImageView fitHeight="150" fitWidth="150"
+               preserveRatio="true" pickOnBounds="true" fx:id="avatar">
+        <Image url="@../../pictures/avatars/avatar1.jpg"/>
+        <clip>
+            <Circle radius="54" centerX="75" centerY="75"/>
+        </clip>
+    </ImageView>
+
+    <HBox alignment="CENTER" prefWidth="190" spacing="10">
+        <Button text="game avatars" prefWidth="90"
+                style="-fx-background-radius: 0; -fx-background-color: #2d2d2d; -fx-text-fill: white"
+                fx:id="gameAvatars"/>
+        <Button text="choose avatar" prefWidth="90"
+                style="-fx-background-radius: 0; -fx-background-color: #2d2d2d; -fx-text-fill: white"
+                fx:id="chooseAvatar"/>
+    </HBox>
 
     <HBox alignment="CENTER" prefWidth="190">
         <Text text="username : " wrappingWidth="80"/>
@@ -29,13 +47,13 @@
     </HBox>
     <Text fx:id="PasswordErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="190"/>
 
-    <Button text="logout" prefWidth="190"
+    <Button text="logout" prefWidth="150"
             style="-fx-background-radius: 0; -fx-background-color: lightgray;"
             fx:id="logoutButton"/>
-    <Button text="delete account" prefWidth="190"
+    <Button text="delete account" prefWidth="150"
             style="-fx-background-radius: 0; -fx-background-color: lightgray;"
             fx:id="deleteAccountButton"/>
-    <Button text="back" prefWidth="190"
+    <Button text="back" prefWidth="150"
             style="-fx-background-radius: 0; -fx-background-color: lightgray;"
             fx:id="backButton"/>
 

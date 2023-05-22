@@ -6,10 +6,12 @@ public class User {
     private String username;
     private String password;
     private UserSetting setting;
+    private String avatarPath;
     public User(String username, String password){
         this.username = username;
         this.password = password;
         setting = new UserSetting();
+        avatarPath = DefaultAvatar.getRandomAvatar();
     }
 
     public String getUsername() {
@@ -41,5 +43,13 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getAvatarPath() {
+        return avatarPath;
+    }
+
+    public void setAvatarPath(String avatarPath) {
+        this.avatarPath = avatarPath;
     }
 }

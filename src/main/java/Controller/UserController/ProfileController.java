@@ -8,6 +8,7 @@ import view.Messages.SignupMessage;
 import view.UserMenu.AccountDeletionMenu;
 import view.UserMenu.LoginMenu;
 import view.UserMenu.ProfileMenu;
+import view.UserMenu.SelectAvatarMenu;
 
 public class ProfileController {
     private User currentUser;
@@ -76,5 +77,15 @@ public class ProfileController {
 
     public void cancelDeletation() throws Exception {
         menu.start(LoginMenu.classStage);
+    }
+
+    public void runChangeAvatar() throws Exception {
+        SelectAvatarMenu selectAvatarMenu = new SelectAvatarMenu();
+        SelectAvatarMenu.controller = this;
+        selectAvatarMenu.start(LoginMenu.classStage);
+    }
+
+    public void setAvatar(String path){
+        currentUser.setAvatarPath(path);
     }
 }
