@@ -13,6 +13,5 @@
 <?import javafx.scene.shape.Circle?>
 <Pane xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      prefHeight="400.0" prefWidth="600.0" id="mainPain"
-      style="-fx-background-color : #EFEEE0">
+      prefHeight="400.0" prefWidth="600.0" id="mainPain">
 </Pane>

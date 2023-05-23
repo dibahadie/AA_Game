@@ -14,7 +14,6 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       prefHeight="400.0" prefWidth="600.0" id="mainPain"
-      style="-fx-background-color : #EFEEE0"
       spacing="7"
       alignment="CENTER">
 
@@ -27,34 +26,24 @@
     </ImageView>
 
     <HBox alignment="CENTER" prefWidth="190" spacing="10">
-        <Button text="game avatars" prefWidth="90"
-                style="-fx-background-radius: 0; -fx-background-color: #2d2d2d; -fx-text-fill: white"
-                fx:id="gameAvatars"/>
-        <Button text="choose avatar" prefWidth="90"
-                style="-fx-background-radius: 0; -fx-background-color: #2d2d2d; -fx-text-fill: white"
-                fx:id="chooseAvatar"/>
+        <Button text="game avatars" prefWidth="90" id="avatarButton" fx:id="gameAvatars"/>
+        <Button text="choose avatar" prefWidth="90" id="avatarButton" fx:id="chooseAvatar"/>
     </HBox>
 
     <HBox alignment="CENTER" prefWidth="190">
         <Text text="username : " wrappingWidth="80"/>
         <TextField fx:id="username" promptText="username" prefWidth="110"/>
     </HBox>
-    <Text fx:id="UsernameErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="190"/>
+    <Text fx:id="UsernameErrorPrompt" id="ErrorPrompt" wrappingWidth="190"/>
 
     <HBox alignment="CENTER" prefWidth="190">
         <Text text="password : " wrappingWidth="80"/>
         <TextField fx:id="password" promptText="password" prefWidth="110"/>
     </HBox>
-    <Text fx:id="PasswordErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="190"/>
+    <Text fx:id="PasswordErrorPrompt" id="ErrorPrompt" wrappingWidth="190"/>
 
-    <Button text="logout" prefWidth="150"
-            style="-fx-background-radius: 0; -fx-background-color: lightgray;"
-            fx:id="logoutButton"/>
-    <Button text="delete account" prefWidth="150"
-            style="-fx-background-radius: 0; -fx-background-color: lightgray;"
-            fx:id="deleteAccountButton"/>
-    <Button text="back" prefWidth="150"
-            style="-fx-background-radius: 0; -fx-background-color: lightgray;"
-            fx:id="backButton"/>
+    <Button text="logout" prefWidth="150" fx:id="logoutButton"/>
+    <Button text="delete account" prefWidth="150" fx:id="deleteAccountButton"/>
+    <Button text="back" prefWidth="150" fx:id="backButton"/>
 
 </VBox>

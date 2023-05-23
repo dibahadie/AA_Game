@@ -47,13 +47,23 @@ public class GameMenu extends Application {
         initializeProgressBar(pane);
 
         Scene scene = new Scene(pane);
+        setStyle(scene);
         addThrowBallEvent(scene);
         stage.setScene(scene);
         stage.show();
     }
 
+    private void setStyle(Scene scene){
+        if (controller.getCurrentUser().getSetting().isBlackAndWhite()){
+            scene.getStylesheets().add(
+                    getClass().getResource("/CSS/BlackAndWhite/generalStyle.css").toExternalForm());
+        } else {
+            scene.getStylesheets().add(
+                    getClass().getResource("/CSS/Normal/generalStyle.css").toExternalForm());
+        }
+    }
+
     public void initializeBalls(Pane pane) {
-        // TODO : can be set in the setting
        ArrayList<Integer> list = controller.getBallMap();
 
         centerCircle = new Circle();

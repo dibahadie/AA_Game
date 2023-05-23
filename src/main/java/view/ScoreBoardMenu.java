@@ -1,5 +1,6 @@
 package view;
 
+import Controller.MainController;
 import Model.AA;
 import Model.User;
 import javafx.application.Application;
@@ -24,6 +25,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class ScoreBoardMenu extends Application {
+    public static MainController controller;
     @FXML
     public TableView rankings;
     @FXML
@@ -37,6 +39,7 @@ public class ScoreBoardMenu extends Application {
                 new URL(LoginMenu.class.getResource("/fxml/ScoreboardFXML.fxml").toExternalForm()));
         Scene scene = new Scene(ScoreBoardPain);
         stage.setScene(scene);
+        setStyle(scene);
         stage.show();
     }
 
@@ -44,6 +47,16 @@ public class ScoreBoardMenu extends Application {
     public void initialize() {
         addRankings();
         addBackButtonEvent();
+    }
+
+    private void setStyle(Scene scene){
+        if (controller.getCurrentUser().getSetting().isBlackAndWhite()){
+            scene.getStylesheets().add(
+                    getClass().getResource("/CSS/BlackAndWhite/generalStyle.css").toExternalForm());
+        } else {
+            scene.getStylesheets().add(
+                    getClass().getResource("/CSS/Normal/generalStyle.css").toExternalForm());
+        }
     }
 
     private void addRankings() {

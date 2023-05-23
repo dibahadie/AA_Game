@@ -38,14 +38,15 @@ public class LoginMenu extends Application {
         pane = FXMLLoader.load(
                 new URL(LoginMenu.class.getResource("/fxml/UserFXML/LoginFXML.fxml").toExternalForm()));
         Scene scene = new Scene(pane);
+        scene.getStylesheets().add(getClass().getResource("/CSS/Normal/generalStyle.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
 
+
     @FXML
     public void initialize() {
         removeErrors();
-        rememberUser.setFont(new Font(11));
     }
 
     public void loginClicked(MouseEvent mouseEvent) throws Exception {

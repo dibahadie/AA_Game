@@ -14,42 +14,42 @@
 
     <center>
         <GridPane alignment="CENTER" style="-fx-background-color: #f5f3f5ff">
-            <ImageView fitHeight="100" fitWidth="100" style="-fx-background-color: white"
+            <ImageView fitHeight="100" fitWidth="100" id="avatarImage"
                        preserveRatio="true" pickOnBounds="true" GridPane.rowIndex="0" GridPane.columnIndex="0"
             fx:id="AVATAR_1">
                 <Image url="@../../pictures/avatars/avatar1.jpg"/>
             </ImageView>
-            <ImageView fitHeight="100" fitWidth="100" style="-fx-background-color: white"
+            <ImageView fitHeight="100" fitWidth="100" id="avatarImage"
                        preserveRatio="true" pickOnBounds="true" GridPane.rowIndex="0" GridPane.columnIndex="1"
                        fx:id="AVATAR_2">
                 <Image url="@../../pictures/avatars/avatar2.jpg"/>
             </ImageView>
-            <ImageView fitHeight="100" fitWidth="100" style="-fx-background-color: white"
+            <ImageView fitHeight="100" fitWidth="100" id="avatarImage"
                        preserveRatio="true" pickOnBounds="true" GridPane.rowIndex="0" GridPane.columnIndex="2"
                        fx:id="AVATAR_3">
                 <Image url="@../../pictures/avatars/avatar3.jpg"/>
             </ImageView>
-            <ImageView fitHeight="100" fitWidth="100" style="-fx-background-color: white"
+            <ImageView fitHeight="100" fitWidth="100" id="avatarImage"
                        preserveRatio="true" pickOnBounds="true" GridPane.rowIndex="0" GridPane.columnIndex="3"
                        fx:id="AVATAR_4">
                 <Image url="@../../pictures/avatars/avatar4.jpg"/>
             </ImageView>
-            <ImageView fitHeight="100" fitWidth="100" style="-fx-background-color: white"
+            <ImageView fitHeight="100" fitWidth="100" id="avatarImage"
                        preserveRatio="true" pickOnBounds="true" GridPane.rowIndex="1" GridPane.columnIndex="0"
                        fx:id="AVATAR_5">
                 <Image url="@../../pictures/avatars/avatar5.jpg"/>
             </ImageView>
-            <ImageView fitHeight="100" fitWidth="100" style="-fx-background-color: white"
+            <ImageView fitHeight="100" fitWidth="100" id="avatarImage"
                        preserveRatio="true" pickOnBounds="true" GridPane.rowIndex="1" GridPane.columnIndex="1"
                        fx:id="AVATAR_6">
                 <Image url="@../../pictures/avatars/avatar6.jpg"/>
             </ImageView>
-            <ImageView fitHeight="100" fitWidth="100" style="-fx-background-color: white"
+            <ImageView fitHeight="100" fitWidth="100" id="avatarImage"
                        preserveRatio="true" pickOnBounds="true" GridPane.rowIndex="1" GridPane.columnIndex="2"
                        fx:id="AVATAR_7">
                 <Image url="@../../pictures/avatars/avatar7.jpg"/>
             </ImageView>
-            <ImageView fitHeight="100" fitWidth="100" style="-fx-background-color: white"
+            <ImageView fitHeight="100" fitWidth="100" id="avatarImage"
                        preserveRatio="true" pickOnBounds="true" GridPane.rowIndex="1" GridPane.columnIndex="3"
                        fx:id="AVATAR_8">
                 <Image url="@../../pictures/avatars/avatar8.jpg"/>

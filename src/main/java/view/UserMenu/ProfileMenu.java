@@ -48,8 +48,19 @@ public class ProfileMenu extends Application {
 
         clearErrors();
         Scene scene = new Scene(box);
+        setStyle(scene);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void setStyle(Scene scene){
+        if (controller.getCurrentUser().getSetting().isBlackAndWhite()){
+            scene.getStylesheets().add(
+                    getClass().getResource("/CSS/BlackAndWhite/generalStyle.css").toExternalForm());
+        } else {
+            scene.getStylesheets().add(
+                    getClass().getResource("/CSS/Normal/generalStyle.css").toExternalForm());
+        }
     }
 
     private void setInitialValues(){

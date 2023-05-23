@@ -43,6 +43,7 @@ public class MainController {
     }
     public void runScoreboard() throws Exception {
         ScoreBoardMenu scoreBoardMenu = new ScoreBoardMenu();
+        ScoreBoardMenu.controller = this;
         scoreBoardMenu.start(LoginMenu.classStage);
     }
     public User getCurrentUser() {

@@ -1,39 +1,41 @@
 #UsernameErrorPrompt {
-    -fx-text-fill: red;
+    -fx-text-fill : black;
 }
 
 Button {
     -fx-background-radius: 0;
-    -fx-background-color: lightgray;
-    -fx-text-fill: black;
+    -fx-background-color: black;
+    -fx-text-fill: white;
 }
 
 #ErrorPrompt {
-    -fx-text-fill: red;
+    -fx-text-fill : black;
 }
 
 #mainPain {
-    -fx-background-color: #EFEEE0;
+    -fx-background-color : white
 }
 
-#avatarButton {
+#avatarButton{
     -fx-background-radius: 0;
-    -fx-background-color: #2d2d2d;
-    -fx-text-fill: white;
+    -fx-background-color: black;
+    -fx-text-fill: white
 }
 
 ChoiceBox {
     -fx-background-radius: 0;
-    -fx-background-color: lightgray;
+    -fx-background-color: black;
+    -fx-text-fill: white;
 }
 
-
 .choice-box .label {
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 
 CheckBox {
     -fx-background-radius: 0;
+    -fx-background-color: white;
+    -fx-fill: white;
 }
 
 #avatarImage {

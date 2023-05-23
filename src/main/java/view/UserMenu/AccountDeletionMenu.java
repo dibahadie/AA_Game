@@ -30,6 +30,7 @@ public class AccountDeletionMenu extends Application {
         loader.setController(this);
         BorderPane pane = loader.load();
         Scene scene = new Scene(pane);
+        setStyle(scene);
         stage.setScene(scene);
         stage.show();
     }
@@ -39,6 +40,16 @@ public class AccountDeletionMenu extends Application {
         message.setFont(font);
         setConfirmationButtonEvent();
         setCancelButtonEvent();
+    }
+
+    private void setStyle(Scene scene){
+        if (controller.getCurrentUser().getSetting().isBlackAndWhite()){
+            scene.getStylesheets().add(
+                    getClass().getResource("/CSS/BlackAndWhite/generalStyle.css").toExternalForm());
+        } else {
+            scene.getStylesheets().add(
+                    getClass().getResource("/CSS/Normal/generalStyle.css").toExternalForm());
+        }
     }
     private void setConfirmationButtonEvent(){
         confirmationButton.setOnMouseClicked(new EventHandler<MouseEvent>() {

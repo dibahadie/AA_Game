@@ -4,25 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="selecting avatar from computer added">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/CSS/Normal/generalStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/ScoreboardFXML.fxml" afterDir="false" />
+    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="added ScoreBoardMenu">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/CSS/BlackAndWhite/generalStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/pictures/logoBlackAndWhite.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SettingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SettingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/AA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/AA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/SettingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/SettingMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CSS/loginStyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/AccountDeletionMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/AccountDeletionMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/ProfileMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/ProfileMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/SelectAvatarMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/SelectAvatarMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CSS/Normal/generalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CSS/Normal/generalStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GameFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GameFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ScoreboardFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ScoreboardFXML.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/SettingFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/SettingFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/AccountDeletionFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/AccountDeletionFXML.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/LoginFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/LoginFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/ProfileFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/ProfileFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/selectAvatar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/selectAvatar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,10 +83,11 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/diba/IdeaProjects/AA_Game/src/main/resources/fxml",
+    "last_opened_file_path": "C:/Users/diba/IdeaProjects/AA_Game/src/main/resources/CSS/BlackAndWhite",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -91,6 +96,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\diba\IdeaProjects\AA_Game\src\main\resources\CSS\BlackAndWhite" />
       <recent name="C:\Users\diba\IdeaProjects\AA_Game\src\main\resources\fxml" />
       <recent name="C:\Users\diba\IdeaProjects\AA_Game\src\main\resources\fxml\UserFXML" />
       <recent name="$PROJECT_DIR$/src/main/resources/fxml" />
@@ -159,7 +165,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683416623273</updated>
-      <workItem from="1684697279605" duration="20891000" />
+      <workItem from="1684697279605" duration="25957000" />
     </task>
     <task id="LOCAL-00001" summary="MVC Structure">
       <created>1683416709258</created>
@@ -259,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684744157525</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added ScoreBoardMenu">
+      <created>1684795972024</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684795972024</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +292,8 @@
     <MESSAGE value="game initialization" />
     <MESSAGE value="assigning and selecting default avatars" />
     <MESSAGE value="selecting avatar from computer added" />
-    <option name="LAST_COMMIT_MESSAGE" value="selecting avatar from computer added" />
+    <MESSAGE value="added ScoreBoardMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ScoreBoardMenu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

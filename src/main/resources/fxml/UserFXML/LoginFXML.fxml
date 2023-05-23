@@ -20,11 +20,11 @@
                     <Image url= "@../../pictures/logo.png"/>
             </ImageView>
 
-            <TextField alignment="CENTER" promptText="username" fx:id="username"/>
+            <TextField alignment="CENTER" promptText="username" fx:id="username" prefWidth="160"/>
             <Text fx:id="UsernameErrorPrompt" wrappingWidth="160"
             id="ErrorPrompt"/>
 
-            <PasswordField alignment="CENTER" promptText="password" fx:id="password"/>
+            <PasswordField alignment="CENTER" promptText="password" fx:id="password" prefWidth="160"/>
             <Text fx:id="PasswordErrorPrompt" wrappingWidth="160"
                   id="ErrorPrompt"/>
 

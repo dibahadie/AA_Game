@@ -43,6 +43,8 @@ public class SettingMenu extends Application {
         VBox box = loader.load();
         Scene scene = new Scene(box);
         stage.setScene(scene);
+        setOnChangeStyle(scene);
+        setStyle(scene);
         stage.show();
     }
 
@@ -54,6 +56,16 @@ public class SettingMenu extends Application {
 
         setInitialValues();
         setBackButtonEvent();
+    }
+
+    private void setStyle(Scene scene){
+        if (controller.getCurrentUser().getSetting().isBlackAndWhite()){
+            scene.getStylesheets().add(
+                    getClass().getResource("/CSS/BlackAndWhite/generalStyle.css").toExternalForm());
+        } else {
+            scene.getStylesheets().add(
+                    getClass().getResource("/CSS/Normal/generalStyle.css").toExternalForm());
+        }
     }
 
     private void setBackButtonEvent(){
@@ -68,6 +80,13 @@ public class SettingMenu extends Application {
                     throw new RuntimeException(e);
                 }
             }
+        });
+    }
+
+    private void setOnChangeStyle(Scene scene){
+        blackAndWhite.setOnMouseClicked(e -> {
+            controller.getCurrentUser().getSetting().setBlackAndWhite(blackAndWhite.isSelected());
+            setStyle(scene);
         });
     }
 

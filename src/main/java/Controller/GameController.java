@@ -63,4 +63,8 @@ public class GameController {
         }
         return null;
     }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
 }

@@ -13,14 +13,12 @@
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       prefHeight="400.0" prefWidth="600.0" id="mainPain"
-      style="-fx-background-color : #EFEEE0"
       spacing="7"
       alignment="CENTER">
 
     <HBox alignment="CENTER" prefWidth="190">
         <Text text="game difficulty level : "/>
-        <ChoiceBox style="-fx-background-radius: 0; -fx-background-color: lightgray;"
-                   fx:id="gameDifficulty">
+        <ChoiceBox fx:id="gameDifficulty">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="easy"/>
@@ -33,8 +31,7 @@
 
     <HBox alignment="CENTER" prefWidth="190">
         <Text text="game difficulty level : "/>
-        <ChoiceBox style="-fx-background-radius: 0; -fx-background-color: lightgray;"
-                   fx:id="mapNumber">
+        <ChoiceBox fx:id="mapNumber">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="map1"/>
@@ -51,16 +48,11 @@
         <TextField fx:id="ballNumber" promptText="enter ball number" prefWidth="40"/>
     </HBox>
 
-    <Text fx:id="BallNumberPrompt" style="-fx-text-fill : red;" wrappingWidth="190"/>
+    <Text fx:id="BallNumberPrompt" id="ErrorPrompt" wrappingWidth="190"/>
 
-    <CheckBox text="mute" fx:id="mute"
-              style="-fx-background-radius: 0;" prefWidth="190"/>
-    <CheckBox text="black and white graphic" fx:id="blackAndWhite"
-              style="-fx-background-radius: 0;" prefWidth="190"/>
-    <CheckBox text="English language" fx:id="english"
-              style="-fx-background-radius: 0;" prefWidth="190"/>
-    <Button text="back" prefWidth="190"
-            style="-fx-background-radius: 0; -fx-background-color: lightgray;"
-            fx:id="backButton"/>
+    <CheckBox text="mute" fx:id="mute" prefWidth="190"/>
+    <CheckBox text="black and white graphic" fx:id="blackAndWhite" prefWidth="190"/>
+    <CheckBox text="English language" fx:id="english" prefWidth="190"/>
+    <Button text="back" prefWidth="190" fx:id="backButton"/>
 
 </VBox>

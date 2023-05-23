@@ -15,36 +15,33 @@
       xmlns:fx="http://javafx.com/fxml"
       prefHeight="400.0" prefWidth="600.0" fx:id="ScoreBoardPain"
       fx:controller="view.ScoreBoardMenu"
-      style="-fx-background-color : #EFEEE0"
+      id="mainPain"
       alignment="CENTER" spacing="10">
 
-    <TableView fx:id="rankings" maxWidth="300" maxHeight="300" style="-fx-background-color: #EFEEE0;
-        -fx-border-color: black; -fx-border-width: 1">
+    <TableView fx:id="rankings" maxWidth="300" maxHeight="300">
         <columns>
-            <TableColumn text="username" prefWidth="75" style="-fx-background-color: lightgray">
+            <TableColumn text="username" prefWidth="75">
                 <cellValueFactory>
                     <PropertyValueFactory property="username"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="rank" prefWidth="75" style="-fx-background-color: lightgray">
+            <TableColumn text="rank" prefWidth="75">
                 <cellValueFactory>
                     <PropertyValueFactory property="rank"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="HighScore" prefWidth="75" style="-fx-background-color: lightgray">
+            <TableColumn text="HighScore" prefWidth="75">
                 <cellValueFactory>
                     <PropertyValueFactory property="highScore"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="time" prefWidth="75" style="-fx-background-color: lightgray">
+            <TableColumn text="time" prefWidth="75">
                 <cellValueFactory>
                     <PropertyValueFactory property="recordTime"/>
                 </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>
-    <Button text="back" prefWidth="190" alignment="CENTER"
-            style="-fx-background-radius: 0; -fx-background-color: lightgray;"
-            fx:id="backButton"/>
+    <Button text="back" prefWidth="190" alignment="CENTER" fx:id="backButton"/>
 
 </VBox>
