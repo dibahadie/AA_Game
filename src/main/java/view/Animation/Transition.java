@@ -1,5 +1,6 @@
 package view.Animation;
 
+import Model.Ball;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
@@ -9,7 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
-import view.GameMenu;
+import view.GameMenu.GameMenu;
 
 public class Transition {
     private GameMenu menu;
@@ -25,14 +26,14 @@ public class Transition {
         }
     }
 
-    public void throwBall(StackPane circle){
+    public void throwBall(Ball circle){
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.2), circle);
         transition.setByY((-1) * 30);
         transition.setCycleCount(1);
         transition.play();
         transition.setOnFinished(e -> {
             menu.throwingCircles.getChildren().remove(circle);
-            circle.getChildren().add(menu.createLine((Circle) circle.getChildren().get(0)));
+            circle.getChildren().add(menu.createLine(circle.getCircle()));
             menu.setThrownBallCoordinate(circle);
         });
     }

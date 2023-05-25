@@ -49,8 +49,9 @@ public class UserManager {
 
     private static void createDefaultUser(){
         if (AA.getInstance().getUser("default") == null){
-            User user = new User("default", "dafault");
+            User user = new User("default", "default");
             AA.getInstance().addUser(user);
+            System.out.println(AA.getInstance().doesUserExist("default"));
             updateUsers();
         }
     }

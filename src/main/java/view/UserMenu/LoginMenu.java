@@ -19,13 +19,13 @@ import java.net.URL;
 
 public class LoginMenu extends Application {
     private LoginController controller = new LoginController(this);
-    public Text UsernameErrorPrompt = new Text();
-    public Text PasswordErrorPrompt = new Text();
-    public TextField username = new TextField();
-    public TextField password = new TextField();
+    @FXML
+    public Text PasswordErrorPrompt, UsernameErrorPrompt;
+    @FXML
+    public TextField username, password;
+    @FXML
     public BorderPane pane;
     public static Stage classStage;
-    public CheckBox rememberUser;
 
     public static void main(String[] args) {
         UserManager.load();

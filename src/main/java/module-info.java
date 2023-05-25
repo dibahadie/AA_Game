@@ -2,6 +2,7 @@ module AA_Game {
     requires javafx.controls;
     requires javafx.fxml;
     requires com.google.gson;
+    requires javafx.media;
 
 
     exports view;
@@ -20,5 +21,7 @@ module AA_Game {
     opens Model to javafx.fxml, com.google.gson;
 
     opens Controller.UserController to com.google.gson;
+    exports view.GameMenu;
+    opens view.GameMenu to javafx.fxml;
 
 }

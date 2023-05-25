@@ -13,13 +13,14 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="view.UserMenu.SignupMenu"
             prefHeight="400.0" prefWidth="600.0" id="mainPain"
-            style="-fx-background-color : #EFEEE0">
+            style="-fx-background-color : #EFEEE0"
+            fx:id="pane">
 
     <center>
         <VBox alignment="CENTER" fillWidth="false" spacing="5">
             <ImageView fitHeight="100" fitWidth="100"
                        preserveRatio="true" pickOnBounds="true">
-                <Image url= "@../../pictures/logo.png"/>
+                <Image url="@../../pictures/logo.png"/>
             </ImageView>
             <TextField alignment="CENTER" promptText="username" fx:id="username"/>
             <Text fx:id="UsernameErrorPrompt" style="-fx-text-fill : red;" wrappingWidth="160"/>

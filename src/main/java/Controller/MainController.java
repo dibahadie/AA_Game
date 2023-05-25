@@ -3,7 +3,7 @@ package Controller;
 import Controller.UserController.ProfileController;
 import Model.Game;
 import Model.User;
-import view.GameMenu;
+import view.GameMenu.GameMenu;
 import view.MainMenu;
 import view.ScoreBoardMenu;
 import view.SettingMenu;

@@ -18,13 +18,12 @@ import java.net.URL;
 public class SignupMenu extends Application {
     private SignupController controller = new SignupController(this);
     public static Stage stage;
-    public TextField username;
-    public TextField password;
-    public TextField passwordConfirmation;
+    @FXML
+    public TextField passwordConfirmation, username, password;
+    @FXML
     private BorderPane pane;
-    public Text UsernameErrorPrompt = new Text();
-    public Text PasswordErrorPrompt = new Text();
-    public Text ConfirmationErrorPrompt = new Text();
+    @FXML
+    public Text UsernameErrorPrompt, PasswordErrorPrompt, ConfirmationErrorPrompt ;
     @Override
     public void start(Stage stage) throws Exception {
         controller = new SignupController(this);

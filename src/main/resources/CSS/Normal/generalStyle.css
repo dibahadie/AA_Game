@@ -34,6 +34,7 @@ ChoiceBox {
 
 CheckBox {
     -fx-background-radius: 0;
+    -fx-background-color: #EFEEE0;
 }
 
 #avatarImage {

@@ -1,5 +1,8 @@
 package Model;
 
+import Controller.UserController.UserManager;
+import view.GameMenu.GameMenu;
+
 public class UserSetting {
     public UserSetting(){
 
@@ -13,7 +16,7 @@ public class UserSetting {
         this.mute = mute;
         this.mapNumber = MapNumber.valueOf(mapNumber.toUpperCase());
     }
-    enum GameDifficulty{
+    public enum GameDifficulty{
         EASY(6, 1.2, 7),
         NORMAL(3, 1.5, 5),
         HARD(2, 1.8, 3);
@@ -25,7 +28,20 @@ public class UserSetting {
         }
     }
 
-    enum MapNumber{
+    public enum MusicNumber{
+        NUMBER_1(GameMenu.class.getResource("/music/AprilRain.mp3").toExternalForm()),
+        NUMBER_2(GameMenu.class.getResource("/music/Piazzolla.mp3").toExternalForm()),
+        NUMBER_3(GameMenu.class.getResource("/music/songOfGoldenDragon.mp3").toExternalForm());
+        private final String path;
+        MusicNumber(String path){
+            this.path = path;
+        }
+
+        public String getPath() {
+            return path;
+        }
+    }
+    public enum MapNumber{
         MAP1, MAP2, MAP3, RANDOM
     }
     private GameDifficulty difficulty = GameDifficulty.EASY;
@@ -34,7 +50,7 @@ public class UserSetting {
     private boolean blackAndWhite = false;
     private boolean english = false;
     private MapNumber mapNumber = MapNumber.RANDOM;
-
+    private MusicNumber musicPath = MusicNumber.NUMBER_1;
 
     public String getDifficulty() {
         return difficulty.name().toLowerCase();
@@ -46,22 +62,22 @@ public class UserSetting {
 
     public void setBallNumber(int ballNumber) {
         this.ballNumber = ballNumber;
+        UserManager.updateUsers();
     }
 
     public void setDifficulty(String difficulty) {
         this.difficulty = GameDifficulty.valueOf(difficulty);
+        UserManager.updateUsers();
     }
 
     public void setBlackAndWhite(boolean blackAndWhite) {
         this.blackAndWhite = blackAndWhite;
+        UserManager.updateUsers();
     }
 
-    public void setEnglish(boolean english) {
+    public void changeLanguage(boolean english) {
         this.english = english;
-    }
-
-    public void setMute(boolean mute) {
-        this.mute = mute;
+        UserManager.updateUsers();
     }
 
     public boolean isEnglish() {
@@ -78,5 +94,17 @@ public class UserSetting {
 
     public String getMapNumber() {
         return mapNumber.name().toLowerCase();
+    }
+    public void changeMuteStatus(){
+        mute = !mute;
+        UserManager.updateUsers();
+    }
+
+    public MusicNumber getMusicPath() {
+        return musicPath;
+    }
+
+    public void setMusicPath(MusicNumber musicPath) {
+        this.musicPath = musicPath;
     }
 }

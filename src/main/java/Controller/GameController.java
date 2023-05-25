@@ -2,12 +2,16 @@ package Controller;
 
 import Model.Game;
 import Model.User;
-import view.GameMenu;
+import Model.UserSetting;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import view.GameMenu.GameMenu;
 import view.UserMenu.LoginMenu;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Timer;
 
 public class GameController {
     private final User currentUser;
@@ -66,5 +70,30 @@ public class GameController {
 
     public User getCurrentUser() {
         return currentUser;
+    }
+    public void changeMuteStatus (){
+        currentUser.getSetting().changeMuteStatus();
+        menu.music.setMute(currentUser.getSetting().isMute());
+    }
+    public void changeMusic(UserSetting.MusicNumber musicNumber){
+        currentUser.getSetting().setMusicPath(musicNumber);
+        menu.music.stop();
+        menu.music = new MediaPlayer(new Media(musicNumber.getPath()));
+        menu.music.setCycleCount(MediaPlayer.INDEFINITE);
+        menu.music.setMute(GameMenu.controller.getCurrentUser().getSetting().isMute());
+        menu.music.play();
+    }
+
+    public void updateScore(int phase){
+        game.setScore(game.getScore() + phase);
+        menu.updateScore(game.getScore());
+    }
+
+    public void lose(){
+        // TODO : loosing
+        System.out.println("you lost");
+    }
+    public boolean hasLost(){
+        return menu.throwingCircles.getChildren().size() != 0;
     }
 }
