@@ -76,18 +76,6 @@ public class GameMenu extends Application {
     }
 
 
-    public Line createLine(Circle circle) {
-        Line line = new Line();
-        line.setTranslateX(circle.getTranslateX() / 2);
-        line.setTranslateY(circle.getTranslateY() / 2);
-        line.setScaleY(150);
-        double angle = Math.atan(line.getTranslateY() / line.getTranslateX());
-        angle *= 180 / Math.PI;
-        line.setRotate(90 + angle);
-        return line;
-    }
-
-
 
     private void updateProgressBar(KeyEvent e) {
         if (e.getCode() == KeyCode.SPACE) {
@@ -99,6 +87,7 @@ public class GameMenu extends Application {
                 Rotation.setFreezeRotation(controller.getGame().getFreezePause(), perimeterObjects, phase);
             }
         }
+        scene.getRoot().requestFocus();
     }
 
     private void addThrowBallEvent(Scene scene) {
@@ -108,6 +97,7 @@ public class GameMenu extends Application {
                 updatePhase();
             }
             updateProgressBar(e);
+            scene.getRoot().requestFocus();
         });
     }
 
@@ -132,10 +122,13 @@ public class GameMenu extends Application {
 
     public void setThrownBallCoordinate(StackPane circle) {
         double rotationAngle = (90 - perimeterObjects.getRotate()) * Math.PI / 180;
-        double secondAngle = (perimeterObjects.getRotate()) * Math.PI / 180;
-        circle.setRotate(secondAngle);
         circle.setTranslateX(Math.cos(rotationAngle) * 150);
         circle.setTranslateY(Math.sin(rotationAngle) * 150);
+        perimeterObjects.getChildren().add(createLine(rotationAngle));
+        perimeterObjects.getChildren().add(circle);
+    }
+
+    public Line createLine(double rotationAngle){
         Line line = new Line();
         line.setTranslateX(Math.cos(rotationAngle) * 75);
         line.setTranslateY(Math.sin(rotationAngle) * 75);
@@ -143,8 +136,18 @@ public class GameMenu extends Application {
         double angle = Math.atan(line.getTranslateY() / line.getTranslateX());
         angle *= 180 / Math.PI;
         line.setRotate(90 + angle);
-        perimeterObjects.getChildren().add(line);
-        perimeterObjects.getChildren().add(circle);
+        return line;
+    }
+
+    public Line createLine(Ball ball) {
+        Line line = new Line();
+        line.setTranslateX(ball.getTranslateX() / 2);
+        line.setTranslateY(ball.getTranslateY() / 2);
+        line.setScaleY(150);
+        double angle = Math.atan(line.getTranslateY() / line.getTranslateX());
+        angle *= 180 / Math.PI;
+        line.setRotate(90 + angle);
+        return line;
     }
 
     public void updatePhase() {

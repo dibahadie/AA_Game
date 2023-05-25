@@ -6,6 +6,7 @@ import javafx.animation.Timeline;
 import javafx.scene.layout.StackPane;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
+import view.GameMenu.GameMenu;
 
 import java.util.Random;
 

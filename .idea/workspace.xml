@@ -4,28 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="added black and white setting">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Ball.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenuInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/music/AprilRain.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/music/Piazzolla.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/music/songOfGoldenDragon.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/soundEffects/ballTap.wav" afterDir="false" />
+    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="up and running">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/LoginMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/UserMenu/SignupMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/UserMenu/SignupMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/CSS/Normal/generalStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CSS/Normal/generalStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/LoginFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/LoginFXML.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/SignupFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/SignupFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenuInitializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +151,7 @@
       <option name="presentableId" value="Default" />
       <updated>1683416623273</updated>
       <workItem from="1684697279605" duration="27028000" />
-      <workItem from="1684852519932" duration="26689000" />
+      <workItem from="1684852519932" duration="29343000" />
     </task>
     <task id="LOCAL-00001" summary="MVC Structure">
       <created>1683416709258</created>
@@ -280,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684802589879</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="up and running">
+      <created>1685007986239</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1685007986239</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +305,8 @@
     <MESSAGE value="selecting avatar from computer added" />
     <MESSAGE value="added ScoreBoardMenu" />
     <MESSAGE value="added black and white setting" />
-    <option name="LAST_COMMIT_MESSAGE" value="added black and white setting" />
+    <MESSAGE value="up and running" />
+    <option name="LAST_COMMIT_MESSAGE" value="up and running" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

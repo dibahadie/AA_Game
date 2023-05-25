@@ -33,7 +33,6 @@ public class Transition {
         transition.play();
         transition.setOnFinished(e -> {
             menu.throwingCircles.getChildren().remove(circle);
-            circle.getChildren().add(menu.createLine(circle.getCircle()));
             menu.setThrownBallCoordinate(circle);
         });
     }

@@ -29,11 +29,12 @@ import static Model.UserSetting.MusicNumber.*;
 
 public class GameMenuInitializer {
     private GameMenu menu;
-    public GameMenuInitializer(GameMenu menu){
+
+    public GameMenuInitializer(GameMenu menu) {
         this.menu = menu;
     }
 
-    public void initializeSinglePlayer(Pane pane){
+    public void initializeSinglePlayer(Pane pane) {
         initializeBalls(pane);
         initializeThrowingBalls(pane);
         initializeProgressBar(pane);
@@ -48,6 +49,7 @@ public class GameMenuInitializer {
         setTimer(pane);
         playMusic();
     }
+
     public void initializeBalls(Pane pane) {
         ArrayList<Integer> list = menu.controller.getBallMap();
 
@@ -72,7 +74,7 @@ public class GameMenuInitializer {
             double tranX = menu.centerCircle.getTranslateX() + GameMenu.controller.getBallX(j);
             double tranY = menu.centerCircle.getTranslateY() + GameMenu.controller.getBallY(j);
             Ball ball = new Ball(r, "", tranX, tranY);
-            menu.perimeterObjects.getChildren().addAll(ball, menu.createLine(ball.getCircle()));
+            menu.perimeterObjects.getChildren().addAll(ball, menu.createLine(ball));
         }
         menu.perimeterObjects.setLayoutY(120);
         menu.perimeterObjects.setLayoutX(250);
@@ -94,32 +96,17 @@ public class GameMenuInitializer {
     public void initializeThrowingBalls(Pane pane) {
         menu.throwingCircles = new Group();
         double distance = menu.centerCircle.getCenterY() + 150;
-        double r = menu.controller.getRadius();
-        int ballNumber = menu.controller.getGame().getBallNumber() - 5;
+        double r = GameMenu.controller.getRadius();
+        int ballNumber = GameMenu.controller.getGame().getBallNumber() - 5;
         for (int i = 0; i < ballNumber; i++) {
             Ball ball = new Ball(r, Integer.toString(i + 1),
                     menu.centerCircle.getCenterX(), distance + (2 * r + 5) * i);
-            Circle circle = new Circle();
-            circle.setCenterX(menu.centerCircle.getCenterX());
-            circle.setCenterY(distance + (2 * r + 5) * i);
-            circle.setRadius(r);
-
-            Text text = new Text(Integer.toString(i + 1));
-            text.setBoundsType(TextBoundsType.VISUAL);
-            text.setStyle("-fx-fill : white;");
-            text.setFont(new Font(11));
-
-            StackPane stack = new StackPane();
-            stack.getChildren().addAll(circle, text);
-            stack.setLayoutX(menu.centerCircle.getCenterX());
-            stack.setLayoutY(distance + (2 * r + 5) * i);
-
-            menu.throwingCircles.getChildren().add(stack);
+            menu.throwingCircles.getChildren().add(ball);
         }
         pane.getChildren().add(menu.throwingCircles);
     }
 
-    public void initializePauseMenu(Pane pane){
+    public void initializePauseMenu(Pane pane) {
         Button pause = new Button();
         pause.setText("pause");
         pause.setLayoutX(510);
@@ -142,8 +129,7 @@ public class GameMenuInitializer {
                 setNodeVisibility(menu.pauseMenu, false);
                 menu.isPauseMenuOpened = false;
                 menu.scene.getRoot().requestFocus();
-            }
-            else {
+            } else {
                 setNodeVisibility(menu.pauseMenu, true);
                 menu.isPauseMenuOpened = true;
                 menu.scene.getRoot().requestFocus();
@@ -151,7 +137,7 @@ public class GameMenuInitializer {
         });
     }
 
-    public void initializePauseOptions(){
+    public void initializePauseOptions() {
         Button mute = new Button();
         if (GameMenu.controller.getCurrentUser().getSetting().isMute())
             mute.setText("mute");
@@ -170,7 +156,7 @@ public class GameMenuInitializer {
         changeMusic.setOnMouseClicked(e -> setNodeVisibility(menu.musicOptions, !menu.musicOptions.isVisible()));
     }
 
-    public void initializeChangeMusicMenu(Pane pane){
+    public void initializeChangeMusicMenu(Pane pane) {
         VBox vBox = new VBox();
         vBox.setLayoutX(405);
         vBox.setLayoutY(68);
@@ -189,12 +175,13 @@ public class GameMenuInitializer {
         secondMusic.setOnMouseClicked(e -> GameMenu.controller.changeMusic(NUMBER_2));
         thirdMusic.setOnMouseClicked(e -> GameMenu.controller.changeMusic(NUMBER_3));
     }
-    private void setNodeVisibility(Node node, boolean visibility){
+
+    private void setNodeVisibility(Node node, boolean visibility) {
         node.setVisible(visibility);
         node.setManaged(visibility);
     }
 
-    public StackPane initializeCirclePane(Pane pane, int layoutY, String ballInitial, String textStr){
+    public StackPane initializeCirclePane(Pane pane, int layoutY, String ballInitial, String textStr) {
         StackPane stackPane = new StackPane();
         stackPane.setLayoutY(layoutY);
         stackPane.setLayoutX(0);
@@ -211,7 +198,7 @@ public class GameMenuInitializer {
         return stackPane;
     }
 
-    public void initializeTimer(Pane pane){
+    public void initializeTimer(Pane pane) {
         StackPane timePane = new StackPane();
         timePane.setLayoutY(74);
         timePane.setLayoutX(0);
@@ -235,7 +222,8 @@ public class GameMenuInitializer {
         pane.getChildren().add(timePane);
         menu.timer = timePane;
     }
-    public void setTimer(Pane pane){
+
+    public void setTimer(Pane pane) {
         initializeTimer(pane);
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
@@ -264,7 +252,7 @@ public class GameMenuInitializer {
         milliTimeLine.play();
     }
 
-    public void playMusic(){
+    public void playMusic() {
         MediaPlayer music = new MediaPlayer(
                 new Media(GameMenu.controller.getCurrentUser().getSetting().getMusicPath().getPath()));
         music.setCycleCount(MediaPlayer.INDEFINITE);

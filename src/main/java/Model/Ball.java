@@ -13,7 +13,7 @@ public class Ball extends StackPane {
         this.text = new Text(text);
         this.circle = new Circle();
         this.circle.setRadius(radius);
-        this.getChildren().addAll(this.text, this.circle);
+        this.getChildren().addAll(this.circle, this.text);
         this.setTranslateX(TransX);
         this.setTranslateY(TransY);
         this.text.setBoundsType(TextBoundsType.VISUAL);
@@ -27,5 +27,9 @@ public class Ball extends StackPane {
 
     public Text getText() {
         return text;
+    }
+    public void setCircleCenter(double centerX, double centerY){
+        circle.setCenterX(centerX);
+        circle.setCenterY(centerY);
     }
 }
