@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="up and running">
+    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="everything up and running for real this time">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/Animation/EndGameAnimation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/EndGame.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Ball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ScoreBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ScoreBoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenuInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +71,7 @@
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/diba/IdeaProjects/AA_Game/src/main/resources/CSS/BlackAndWhite",
+    "last_opened_file_path": "C:/Users/diba/IdeaProjects/project-group-59",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -81,8 +84,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\diba\IdeaProjects\AA_Game\src\main\resources\CSS\BlackAndWhite" />
       <recent name="C:\Users\diba\IdeaProjects\AA_Game\src\main\resources\fxml" />
+      <recent name="C:\Users\diba\IdeaProjects\AA_Game\src\main\resources\CSS\BlackAndWhite" />
       <recent name="C:\Users\diba\IdeaProjects\AA_Game\src\main\resources\fxml\UserFXML" />
       <recent name="$PROJECT_DIR$/src/main/resources/fxml" />
       <recent name="$PROJECT_DIR$/src/main/java" />
@@ -95,52 +98,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="MainMenuController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.GraphicController.MainMenuController" />
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.UserMenu.LoginMenu" />
       <module name="AA_Game" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.GraphicController.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterMenuController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.GraphicController.UserGraphicController.RegisterMenuController" />
-      <module name="AA_Game" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.GraphicController.UserGraphicController.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScoreBoardMenuController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.GraphicController.ScoreBoardMenuController" />
-      <module name="AA_Game" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.GraphicController.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.MainMenuController" />
-        <item itemvalue="Application.RegisterMenuController" />
-        <item itemvalue="Application.ScoreBoardMenuController" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -151,7 +115,9 @@
       <option name="presentableId" value="Default" />
       <updated>1683416623273</updated>
       <workItem from="1684697279605" duration="27028000" />
-      <workItem from="1684852519932" duration="29343000" />
+      <workItem from="1684852519932" duration="35262000" />
+      <workItem from="1685310749101" duration="94000" />
+      <workItem from="1685359516053" duration="5893000" />
     </task>
     <task id="LOCAL-00001" summary="MVC Structure">
       <created>1683416709258</created>
@@ -272,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685007986239</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="everything up and running for real this time">
+      <created>1685012050397</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685012050397</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +279,8 @@
     <MESSAGE value="added ScoreBoardMenu" />
     <MESSAGE value="added black and white setting" />
     <MESSAGE value="up and running" />
-    <option name="LAST_COMMIT_MESSAGE" value="up and running" />
+    <MESSAGE value="everything up and running for real this time" />
+    <option name="LAST_COMMIT_MESSAGE" value="everything up and running for real this time" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

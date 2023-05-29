@@ -1,6 +1,7 @@
 package view;
 
 import Controller.MainController;
+import Controller.ScoreBoardController;
 import Model.AA;
 import Model.User;
 import javafx.application.Application;
@@ -25,7 +26,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class ScoreBoardMenu extends Application {
-    public static MainController controller;
+    public static ScoreBoardController controller;
     @FXML
     public TableView rankings;
     @FXML

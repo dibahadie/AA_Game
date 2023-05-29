@@ -1,8 +1,14 @@
 package view.GameMenu;
 
+import Controller.GameController;
+import Controller.ScoreBoardController;
 import Model.Ball;
+import Model.Game;
+import Model.User;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -16,9 +22,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextBoundsType;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 import view.Animation.Rotation;
+import view.MainMenu;
+import view.ScoreBoardMenu;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -41,6 +49,7 @@ public class GameMenuInitializer {
         initializePauseMenu(pane);
         initializeChangeMusicMenu(pane);
         initializePauseOptions();
+        initializeEndGamePopup(pane);
         menu.score = initializeCirclePane(pane, 30, "0", "Your Score");
         menu.leftBalls = initializeCirclePane(pane, 52,
                 Integer.toString(menu.throwingCircles.getChildren().size()), "Left Balls   ");
@@ -48,6 +57,7 @@ public class GameMenuInitializer {
         scoreBall.setFill(Color.RED);
         setTimer(pane);
         playMusic();
+        checkLoseStatus();
     }
 
     public void initializeBalls(Pane pane) {
@@ -149,11 +159,28 @@ public class GameMenuInitializer {
             else mute.setText("mute");
         });
         menu.mute = mute;
+        menu.pauseMenu.getChildren().add(mute);
+
         Button changeMusic = new Button("changeMusic");
         changeMusic.setMinWidth(85);
-        menu.pauseMenu.getChildren().addAll(mute, changeMusic);
+        menu.pauseMenu.getChildren().add(changeMusic);
         menu.changeMusic = changeMusic;
         changeMusic.setOnMouseClicked(e -> setNodeVisibility(menu.musicOptions, !menu.musicOptions.isVisible()));
+
+        Button restart = new Button("restart");
+        restart.setMinWidth(85);
+        menu.pauseMenu.getChildren().add(restart);
+        menu.restart = restart;
+        restart.setOnMouseClicked(e -> {
+            GameMenu gameMenu = new GameMenu();
+            User currentUser = GameMenu.controller.getCurrentUser();
+            GameController gameController = new GameController(currentUser, gameMenu, new Game(currentUser));
+            try {
+                gameController.run();
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 
     public void initializeChangeMusicMenu(Pane pane) {
@@ -229,8 +256,7 @@ public class GameMenuInitializer {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                if (GameMenu.controller.hasLost())
-                    GameMenu.controller.lose();
+                GameMenu.controller.lose();
             }
         };
         timer.schedule(timerTask, 99000);
@@ -250,6 +276,7 @@ public class GameMenuInitializer {
             milliTimeLine.play();
         });
         milliTimeLine.play();
+        menu.timerTimeLine = milliTimeLine;
     }
 
     public void playMusic() {
@@ -259,5 +286,70 @@ public class GameMenuInitializer {
         music.setMute(GameMenu.controller.getCurrentUser().getSetting().isMute());
         music.play();
         menu.music = music;
+    }
+
+    public void checkLoseStatus() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), actionEvent -> {
+            if (!GameMenu.controller.hasLost) {
+                for (Node node : menu.perimeterObjects.getChildren()) {
+                    if (node instanceof Ball) {
+                        for (Node node1 : menu.perimeterObjects.getChildren()) {
+                            if (node1 instanceof Ball && !node1.equals(node)) {
+                                Circle circle1 = ((Ball) node).getCircle();
+                                Circle circle2 = ((Ball) node1).getCircle();
+                                double dx = node.getTranslateX() - node1.getTranslateX();
+                                double dy = node.getTranslateY() - node1.getTranslateY();
+                                double d = Math.sqrt(dx * dx + dy * dy);
+                                if (d < (circle1.getRadius() + circle2.getRadius())) {
+                                    GameMenu.controller.lose();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+        menu.losingTimeLine = timeline;
+    }
+
+    public void initializeEndGamePopup(Pane pane) {
+        VBox popUpPane = new VBox();
+        popUpPane.setAlignment(Pos.CENTER);
+        popUpPane.setMinWidth(200);
+        popUpPane.setMinHeight(200);
+        Button mainMenu = new Button("Main Menu");
+        Button scoreBoard = new Button("ScoreBoard");
+        mainMenu.setPrefWidth(100);
+        scoreBoard.setPrefWidth(100);
+        Text text = new Text();
+        text.setTextAlignment(TextAlignment.CENTER);
+        text.setFont(new Font(13));
+        mainMenu.setOnMouseClicked(e -> {
+            try {
+                MainMenu.controller.run();
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        scoreBoard.setOnMouseClicked(e -> {
+            try {
+                ScoreBoardMenu scoreBoardMenu = new ScoreBoardMenu();
+                ScoreBoardMenu.controller = new
+                        ScoreBoardController(GameMenu.controller.getCurrentUser(), scoreBoardMenu);
+                ScoreBoardMenu.controller.run();
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        popUpPane.getChildren().addAll(text, scoreBoard, mainMenu);
+        popUpPane.setSpacing(5);
+        popUpPane.setStyle("-fx-background-color: white; -fx-border-color: black");
+        popUpPane.setLayoutY(100);
+        popUpPane.setLayoutX(200);
+        setNodeVisibility(popUpPane, false);
+        pane.getChildren().add(popUpPane);
+        menu.endGamePopUp = popUpPane;
     }
 }

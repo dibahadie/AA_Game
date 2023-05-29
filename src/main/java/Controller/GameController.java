@@ -5,6 +5,7 @@ import Model.User;
 import Model.UserSetting;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import view.Animation.EndGameAnimation;
 import view.GameMenu.GameMenu;
 import view.UserMenu.LoginMenu;
 
@@ -17,6 +18,7 @@ public class GameController {
     private final User currentUser;
     private final GameMenu menu;
     private final Game game;
+    public boolean hasLost = false;
     public GameController(User currentUser, GameMenu menu, Game game){
         this.menu = menu;
         this.currentUser = currentUser;
@@ -44,8 +46,9 @@ public class GameController {
     }
 
     public double getRadius(){
-        int allBalls = game.getBallNumber();
-        return (Math.PI * 100 / allBalls) * 0.8;
+//        int allBalls = game.getBallNumber();
+//        return (Math.PI * 100 / allBalls) * 0.8;
+        return 10;
     }
 
     public ArrayList<Integer> getBallMap(){
@@ -90,8 +93,27 @@ public class GameController {
     }
 
     public void lose(){
-        // TODO : loosing
-        System.out.println("you lost");
+        if (!hasLost) {
+            hasLost = true;
+            EndGameAnimation animation = new EndGameAnimation(menu.blackCircle);
+            animation.play();
+            menu.openEndGamePopUp(false);
+            endGame();
+        }
+    }
+
+    public void win(){
+        hasLost = false;
+        EndGameAnimation animation = new EndGameAnimation(menu.blackCircle);
+        animation.play();
+        menu.openEndGamePopUp(true);
+        endGame();
+    }
+
+    public void endGame(){
+        hasLost = false;
+        menu.losingTimeLine.stop();
+        menu.timerTimeLine.stop();
     }
     public boolean hasLost(){
         return menu.throwingCircles.getChildren().size() != 0;

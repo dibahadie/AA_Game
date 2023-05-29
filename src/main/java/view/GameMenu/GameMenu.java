@@ -2,12 +2,10 @@ package view.GameMenu;
 
 import Controller.GameController;
 import Model.Ball;
-import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
@@ -23,7 +21,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import view.Animation.Rotation;
 import view.Animation.Transition;
 import view.UserMenu.LoginMenu;
@@ -40,9 +37,10 @@ public class GameMenu extends Application {
     public StackPane perimeterObjects, score, leftBalls, timer;
     public Group throwingCircles;
     public ProgressBar progressBar;
-    public Button pauseMenuButton, mute, changeMusic;
-    public VBox pauseMenu, musicOptions;
+    public Button pauseMenuButton, mute, changeMusic, restart;
+    public VBox pauseMenu, musicOptions, endGamePopUp;
     public MediaPlayer music;
+    public Timeline losingTimeLine, timerTimeLine;
     int phase = 1;
     boolean isPauseMenuOpened = false;
 
@@ -65,8 +63,8 @@ public class GameMenu extends Application {
         stage.show();
     }
 
-    private void setStyle(Scene scene){
-        if (controller.getCurrentUser().getSetting().isBlackAndWhite()){
+    private void setStyle(Scene scene) {
+        if (controller.getCurrentUser().getSetting().isBlackAndWhite()) {
             scene.getStylesheets().add(
                     getClass().getResource("/CSS/BlackAndWhite/generalStyle.css").toExternalForm());
         } else {
@@ -74,7 +72,6 @@ public class GameMenu extends Application {
                     getClass().getResource("/CSS/Normal/generalStyle.css").toExternalForm());
         }
     }
-
 
 
     private void updateProgressBar(KeyEvent e) {
@@ -102,19 +99,18 @@ public class GameMenu extends Application {
     }
 
     private void throwBall() {
-        if (throwingCircles.getChildren().isEmpty()) {
-            return;
-        }
-        // TODO : handle when there are no balls left
         Ball circle = (Ball) throwingCircles.getChildren().get(0);
         transition.moveAllBallsUp(controller.getRadius() * 2 + 5, throwingCircles);
         transition.throwBall(circle);
         controller.updateScore(phase);
         updateLeftBalls();
         playThroughBallSound();
+        if (throwingCircles.getChildren().size() == 1) {
+            controller.win();
+        }
     }
 
-    public void playThroughBallSound(){
+    public void playThroughBallSound() {
         MediaPlayer mediaPlayer = new MediaPlayer(
                 new Media(getClass().getResource("/soundEffects/ballTap.wav").toExternalForm()));
         mediaPlayer.play();
@@ -128,7 +124,7 @@ public class GameMenu extends Application {
         perimeterObjects.getChildren().add(circle);
     }
 
-    public Line createLine(double rotationAngle){
+    public Line createLine(double rotationAngle) {
         Line line = new Line();
         line.setTranslateX(Math.cos(rotationAngle) * 75);
         line.setTranslateY(Math.sin(rotationAngle) * 75);
@@ -165,10 +161,11 @@ public class GameMenu extends Application {
         }
     }
 
-    public void updateScore(int n){
+    public void updateScore(int n) {
         ((Text) score.getChildren().get(2)).setText(Integer.toString(n));
     }
-    public void updateLeftBalls(){
+
+    public void updateLeftBalls() {
         int left = throwingCircles.getChildren().size() - 1;
         int all = controller.getGame().getBallNumber() - 5;
         ((Text) leftBalls.getChildren().get(2)).setText(Integer.toString(left));
@@ -182,11 +179,19 @@ public class GameMenu extends Application {
         }
     }
 
-    public void checkLoseStatus(){
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), actionEvent -> {
-            for (Node node : perimeterObjects.getChildren()){
-
-            }
-        }));
+    public void openEndGamePopUp(boolean status) {
+        String scoreStr = ((Text) score.getChildren().get(2)).getText();
+        String timeSecond = ((Text) timer.getChildren().get(2)).getText();
+        String timeMillisecond = ((Text) timer.getChildren().get(3)).getText();
+        double time = Integer.parseInt(timeSecond) + Integer.parseInt(timeMillisecond)* 0.01;
+        if (status) {
+            ((Text) endGamePopUp.getChildren().get(0)).setText("You won!\n" + "Your score is " + scoreStr +
+                    "\nYour time is " + time);
+        }
+        else {
+            ((Text) endGamePopUp.getChildren().get(0)).setText("You lost!\n");
+        }
+        endGamePopUp.setVisible(true);
+        endGamePopUp.setManaged(true);
     }
 }
