@@ -21,7 +21,7 @@ module AA_Game {
     opens Model to javafx.fxml, com.google.gson;
 
     opens Controller.UserController to com.google.gson;
-    exports view.GameMenu;
-    opens view.GameMenu to javafx.fxml;
+    exports view.GameMenus;
+    opens view.GameMenus to javafx.fxml;
 
 }

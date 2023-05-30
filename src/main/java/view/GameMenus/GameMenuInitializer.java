@@ -1,4 +1,4 @@
-package view.GameMenu;
+package view.GameMenus;
 
 import Controller.GameController;
 import Controller.ScoreBoardController;
@@ -36,9 +36,9 @@ import static Model.UserSetting.MusicNumber.*;
 
 
 public class GameMenuInitializer {
-    private GameMenu menu;
+    private GameMenuSinglePlayer menu;
 
-    public GameMenuInitializer(GameMenu menu) {
+    public GameMenuInitializer(GameMenuSinglePlayer menu) {
         this.menu = menu;
     }
 
@@ -76,13 +76,13 @@ public class GameMenuInitializer {
 
         menu.perimeterObjects = new StackPane();
 
-        double r = GameMenu.controller.getRadius();
+        double r = GameMenuSinglePlayer.controller.getRadius();
 
         menu.perimeterObjects.getChildren().add(menu.centerCircle);
         for (int i = 0; i < 5; i++) {
             int j = list.get(i);
-            double tranX = menu.centerCircle.getTranslateX() + GameMenu.controller.getBallX(j);
-            double tranY = menu.centerCircle.getTranslateY() + GameMenu.controller.getBallY(j);
+            double tranX = menu.centerCircle.getTranslateX() + GameMenuSinglePlayer.controller.getBallX(j);
+            double tranY = menu.centerCircle.getTranslateY() + GameMenuSinglePlayer.controller.getBallY(j);
             Ball ball = new Ball(r, "", tranX, tranY);
             menu.perimeterObjects.getChildren().addAll(ball, menu.createLine(ball));
         }
@@ -106,8 +106,8 @@ public class GameMenuInitializer {
     public void initializeThrowingBalls(Pane pane) {
         menu.throwingCircles = new Group();
         double distance = menu.centerCircle.getCenterY() + 150;
-        double r = GameMenu.controller.getRadius();
-        int ballNumber = GameMenu.controller.getGame().getBallNumber() - 5;
+        double r = GameMenuSinglePlayer.controller.getRadius();
+        int ballNumber = GameMenuSinglePlayer.controller.getGame().getBallNumber() - 5;
         for (int i = 0; i < ballNumber; i++) {
             Ball ball = new Ball(r, Integer.toString(i + 1),
                     menu.centerCircle.getCenterX(), distance + (2 * r + 5) * i);
@@ -138,23 +138,22 @@ public class GameMenuInitializer {
             if (menu.isPauseMenuOpened) {
                 setNodeVisibility(menu.pauseMenu, false);
                 menu.isPauseMenuOpened = false;
-                menu.scene.getRoot().requestFocus();
             } else {
                 setNodeVisibility(menu.pauseMenu, true);
                 menu.isPauseMenuOpened = true;
-                menu.scene.getRoot().requestFocus();
             }
+            menu.scene.getRoot().requestFocus();
         });
     }
 
     public void initializePauseOptions() {
         Button mute = new Button();
-        if (GameMenu.controller.getCurrentUser().getSetting().isMute())
+        if (GameMenuSinglePlayer.controller.getCurrentUser().getSetting().isMute())
             mute.setText("mute");
         else mute.setText("unmute");
         mute.setMinWidth(85);
         mute.setOnMouseClicked(e -> {
-            GameMenu.controller.changeMuteStatus();
+            GameMenuSinglePlayer.controller.changeMuteStatus();
             if (mute.getText().equals("mute")) mute.setText("unmute");
             else mute.setText("mute");
         });
@@ -172,9 +171,9 @@ public class GameMenuInitializer {
         menu.pauseMenu.getChildren().add(restart);
         menu.restart = restart;
         restart.setOnMouseClicked(e -> {
-            GameMenu gameMenu = new GameMenu();
-            User currentUser = GameMenu.controller.getCurrentUser();
-            GameController gameController = new GameController(currentUser, gameMenu, new Game(currentUser));
+            GameMenuSinglePlayer gameMenuSinglePlayer = new GameMenuSinglePlayer();
+            User currentUser = GameMenuSinglePlayer.controller.getCurrentUser();
+            GameController gameController = new GameController(currentUser, gameMenuSinglePlayer, new Game(currentUser));
             try {
                 gameController.run();
             } catch (Exception ex) {
@@ -198,9 +197,9 @@ public class GameMenuInitializer {
         vBox.getChildren().addAll(firstMusic, secondMusic, thirdMusic);
         pane.getChildren().add(vBox);
         menu.musicOptions = vBox;
-        firstMusic.setOnMouseClicked(e -> GameMenu.controller.changeMusic(NUMBER_1));
-        secondMusic.setOnMouseClicked(e -> GameMenu.controller.changeMusic(NUMBER_2));
-        thirdMusic.setOnMouseClicked(e -> GameMenu.controller.changeMusic(NUMBER_3));
+        firstMusic.setOnMouseClicked(e -> GameMenuSinglePlayer.controller.changeMusic(NUMBER_1));
+        secondMusic.setOnMouseClicked(e -> GameMenuSinglePlayer.controller.changeMusic(NUMBER_2));
+        thirdMusic.setOnMouseClicked(e -> GameMenuSinglePlayer.controller.changeMusic(NUMBER_3));
     }
 
     private void setNodeVisibility(Node node, boolean visibility) {
@@ -256,7 +255,7 @@ public class GameMenuInitializer {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                GameMenu.controller.lose();
+                GameMenuSinglePlayer.controller.lose();
             }
         };
         timer.schedule(timerTask, 99000);
@@ -281,16 +280,16 @@ public class GameMenuInitializer {
 
     public void playMusic() {
         MediaPlayer music = new MediaPlayer(
-                new Media(GameMenu.controller.getCurrentUser().getSetting().getMusicPath().getPath()));
+                new Media(GameMenuSinglePlayer.controller.getCurrentUser().getSetting().getMusicPath().getPath()));
         music.setCycleCount(MediaPlayer.INDEFINITE);
-        music.setMute(GameMenu.controller.getCurrentUser().getSetting().isMute());
+        music.setMute(GameMenuSinglePlayer.controller.getCurrentUser().getSetting().isMute());
         music.play();
         menu.music = music;
     }
 
     public void checkLoseStatus() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), actionEvent -> {
-            if (!GameMenu.controller.hasLost) {
+            if (!GameMenuSinglePlayer.controller.hasLost) {
                 for (Node node : menu.perimeterObjects.getChildren()) {
                     if (node instanceof Ball) {
                         for (Node node1 : menu.perimeterObjects.getChildren()) {
@@ -301,7 +300,7 @@ public class GameMenuInitializer {
                                 double dy = node.getTranslateY() - node1.getTranslateY();
                                 double d = Math.sqrt(dx * dx + dy * dy);
                                 if (d < (circle1.getRadius() + circle2.getRadius())) {
-                                    GameMenu.controller.lose();
+                                    GameMenuSinglePlayer.controller.lose();
                                 }
                             }
                         }
@@ -337,7 +336,7 @@ public class GameMenuInitializer {
             try {
                 ScoreBoardMenu scoreBoardMenu = new ScoreBoardMenu();
                 ScoreBoardMenu.controller = new
-                        ScoreBoardController(GameMenu.controller.getCurrentUser(), scoreBoardMenu);
+                        ScoreBoardController(GameMenuSinglePlayer.controller.getCurrentUser(), scoreBoardMenu);
                 ScoreBoardMenu.controller.run();
             } catch (Exception ex) {
                 throw new RuntimeException(ex);

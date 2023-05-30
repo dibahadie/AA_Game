@@ -10,11 +10,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
-import view.GameMenu.GameMenu;
+import view.GameMenus.GameMenuSinglePlayer;
 
 public class Transition {
-    private GameMenu menu;
-    public Transition(GameMenu menu){
+    private GameMenuSinglePlayer menu;
+    public Transition(GameMenuSinglePlayer menu){
         this.menu = menu;
     }
     public void moveAllBallsUp(double d, Group throwingCircles){
@@ -26,14 +26,36 @@ public class Transition {
         }
     }
 
+    public void moveAllBallsHorizontal(double d, Group throwingCircles){
+        for (Node child : throwingCircles.getChildren()) {
+            TranslateTransition transition = new TranslateTransition(Duration.seconds(0.01), child);
+            transition.setByX(d);
+            transition.setCycleCount(1);
+            transition.play();
+        }
+    }
+
     public void throwBall(Ball circle){
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.2), circle);
-        transition.setByY((-1) * 30);
+        double x = menu.horizontalOffset;
+        if (x > 150){
+            transition.setByY(-350);
+
+        } else {
+            double offset = 150 - Math.sqrt(22500 - x*x);
+            transition.setByY((-1) * 30 - offset);
+        }
         transition.setCycleCount(1);
         transition.play();
         transition.setOnFinished(e -> {
             menu.throwingCircles.getChildren().remove(circle);
-            menu.setThrownBallCoordinate(circle);
+            if (x <= 150) {
+                menu.setThrownBallCoordinate(circle);
+            }
+            else {
+                menu.pane.getChildren().add(circle);
+                GameMenuSinglePlayer.controller.lose();
+            }
         });
     }
 

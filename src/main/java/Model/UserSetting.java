@@ -1,7 +1,7 @@
 package Model;
 
 import Controller.UserController.UserManager;
-import view.GameMenu.GameMenu;
+import view.GameMenus.GameMenuSinglePlayer;
 
 public class UserSetting {
     public UserSetting(){
@@ -29,9 +29,9 @@ public class UserSetting {
     }
 
     public enum MusicNumber{
-        NUMBER_1(GameMenu.class.getResource("/music/AprilRain.mp3").toExternalForm()),
-        NUMBER_2(GameMenu.class.getResource("/music/Piazzolla.mp3").toExternalForm()),
-        NUMBER_3(GameMenu.class.getResource("/music/songOfGoldenDragon.mp3").toExternalForm());
+        NUMBER_1(GameMenuSinglePlayer.class.getResource("/music/AprilRain.mp3").toExternalForm()),
+        NUMBER_2(GameMenuSinglePlayer.class.getResource("/music/Piazzolla.mp3").toExternalForm()),
+        NUMBER_3(GameMenuSinglePlayer.class.getResource("/music/songOfGoldenDragon.mp3").toExternalForm());
         private final String path;
         MusicNumber(String path){
             this.path = path;

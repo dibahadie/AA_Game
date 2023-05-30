@@ -12,9 +12,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -27,12 +29,9 @@ import java.util.ArrayList;
 
 public class ScoreBoardMenu extends Application {
     public static ScoreBoardController controller;
-    @FXML
-    public TableView rankings;
-    @FXML
     public VBox ScoreBoardPain;
-    @FXML
     public Button backButton;
+    public VBox rankings;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -61,14 +60,25 @@ public class ScoreBoardMenu extends Application {
     }
 
     private void addRankings() {
-//        TODO : different graphic for top 5
         ArrayList<User> ranking = AA.getUserRanking();
-        ObservableList<User> userList = FXCollections.observableArrayList();
         for (int i = 0; i < ranking.size() && i < 10; i++) {
             User user = ranking.get(i);
-            userList.add(user);
+            HBox userRow = new HBox();
+            userRow.setAlignment(Pos.CENTER);
+            userRow.setSpacing(20);
+            Text rank = new Text(Integer.toString(i+1));
+            Text username = new Text(user.getUsername());
+            Text highScore = new Text(Integer.toString(user.getHighScore()));
+            Text recordTime = new Text(Integer.toString(user.getRecordTime()));
+            if (i < 3){
+                rank.setStyle("-fx-fill: green");
+                username.setStyle("-fx-fill: green");
+                highScore.setStyle("-fx-fill: green");
+                recordTime.setStyle("-fx-fill: green");
+            }
+            userRow.getChildren().addAll(rank, username, highScore, recordTime);
+            rankings.getChildren().add(userRow);
         }
-        rankings.setItems(userList);
     }
 
     private void addBackButtonEvent() {

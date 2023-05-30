@@ -1,4 +1,4 @@
-package view.GameMenu;
+package view.GameMenus;
 
 import Controller.GameController;
 import Model.Ball;
@@ -28,7 +28,7 @@ import view.UserMenu.LoginMenu;
 
 import java.net.URL;
 
-public class GameMenu extends Application {
+public class GameMenuSinglePlayer extends Application {
     public Scene scene;
     public static GameController controller;
     private static Transition transition;
@@ -41,7 +41,8 @@ public class GameMenu extends Application {
     public VBox pauseMenu, musicOptions, endGamePopUp;
     public MediaPlayer music;
     public Timeline losingTimeLine, timerTimeLine;
-    int phase = 1;
+    public int phase = 1;
+    public double horizontalOffset = 0;
     boolean isPauseMenuOpened = false;
 
     @Override
@@ -56,9 +57,9 @@ public class GameMenu extends Application {
         transition = new Transition(this);
 
         scene = new Scene(pane);
-        scene.getRoot().requestFocus();
         setStyle(scene);
-        addThrowBallEvent(scene);
+        addKeyEvents(scene);
+        scene.getRoot().requestFocus();
         stage.setScene(scene);
         stage.show();
     }
@@ -87,11 +88,22 @@ public class GameMenu extends Application {
         scene.getRoot().requestFocus();
     }
 
-    private void addThrowBallEvent(Scene scene) {
+    private void addKeyEvents(Scene scene) {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.SPACE) {
                 throwBall();
                 updatePhase();
+            }
+            else if (e.getCode() == KeyCode.LEFT) {
+//                if (phase == 4){
+                    transition.moveAllBallsHorizontal(-1, throwingCircles);
+                    horizontalOffset--;
+//                }
+            } else if (e.getCode() == KeyCode.RIGHT) {
+//                if (phase == 4) {
+                    transition.moveAllBallsHorizontal(1, throwingCircles);
+                    horizontalOffset++;
+//                }
             }
             updateProgressBar(e);
             scene.getRoot().requestFocus();
@@ -117,7 +129,11 @@ public class GameMenu extends Application {
     }
 
     public void setThrownBallCoordinate(StackPane circle) {
+        double x = horizontalOffset;
+        double offset = 150 - Math.sqrt(22500 - x*x);
+        double offsetAngle = Math.acos((150 - offset)/150);
         double rotationAngle = (90 - perimeterObjects.getRotate()) * Math.PI / 180;
+        rotationAngle -= offsetAngle;
         circle.setTranslateX(Math.cos(rotationAngle) * 150);
         circle.setTranslateY(Math.sin(rotationAngle) * 150);
         perimeterObjects.getChildren().add(createLine(rotationAngle));
@@ -183,12 +199,11 @@ public class GameMenu extends Application {
         String scoreStr = ((Text) score.getChildren().get(2)).getText();
         String timeSecond = ((Text) timer.getChildren().get(2)).getText();
         String timeMillisecond = ((Text) timer.getChildren().get(3)).getText();
-        double time = Integer.parseInt(timeSecond) + Integer.parseInt(timeMillisecond)* 0.01;
+        double time = Integer.parseInt(timeSecond) + Integer.parseInt(timeMillisecond) * 0.01;
         if (status) {
             ((Text) endGamePopUp.getChildren().get(0)).setText("You won!\n" + "Your score is " + scoreStr +
                     "\nYour time is " + time);
-        }
-        else {
+        } else {
             ((Text) endGamePopUp.getChildren().get(0)).setText("You lost!\n");
         }
         endGamePopUp.setVisible(true);

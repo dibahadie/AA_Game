@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="everything up and running for real this time">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/Animation/EndGameAnimation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/EndGame.fxml" afterDir="false" />
+    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="added losing and winning endgame menu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenuMultiplePlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ScoreBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ScoreBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenuInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/EndGameAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/EndGameAnimation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenuSinglePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenuInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ScoreboardFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ScoreboardFXML.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +76,7 @@
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/diba/IdeaProjects/project-group-59",
+    "last_opened_file_path": "C:/Users/diba/IdeaProjects/AA_Game",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -118,6 +123,8 @@
       <workItem from="1684852519932" duration="35262000" />
       <workItem from="1685310749101" duration="94000" />
       <workItem from="1685359516053" duration="5893000" />
+      <workItem from="1685372550711" duration="393000" />
+      <workItem from="1685380791444" duration="3681000" />
     </task>
     <task id="LOCAL-00001" summary="MVC Structure">
       <created>1683416709258</created>
@@ -250,6 +257,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

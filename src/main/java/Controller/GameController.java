@@ -6,20 +6,19 @@ import Model.UserSetting;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import view.Animation.EndGameAnimation;
-import view.GameMenu.GameMenu;
+import view.GameMenus.GameMenuSinglePlayer;
 import view.UserMenu.LoginMenu;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Timer;
 
 public class GameController {
     private final User currentUser;
-    private final GameMenu menu;
+    private final GameMenuSinglePlayer menu;
     private final Game game;
     public boolean hasLost = false;
-    public GameController(User currentUser, GameMenu menu, Game game){
+    public GameController(User currentUser, GameMenuSinglePlayer menu, Game game){
         this.menu = menu;
         this.currentUser = currentUser;
         this.game = game;
@@ -30,7 +29,7 @@ public class GameController {
     }
 
     public void run() throws Exception {
-        GameMenu.controller = this;
+        GameMenuSinglePlayer.controller = this;
         menu.start(LoginMenu.classStage);
     }
 
@@ -83,7 +82,7 @@ public class GameController {
         menu.music.stop();
         menu.music = new MediaPlayer(new Media(musicNumber.getPath()));
         menu.music.setCycleCount(MediaPlayer.INDEFINITE);
-        menu.music.setMute(GameMenu.controller.getCurrentUser().getSetting().isMute());
+        menu.music.setMute(GameMenuSinglePlayer.controller.getCurrentUser().getSetting().isMute());
         menu.music.play();
     }
 
