@@ -6,7 +6,7 @@ import Model.UserSetting;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import view.Animation.EndGameAnimation;
-import view.GameMenus.GameMenuSinglePlayer;
+import view.GameMenus.GameMenu;
 import view.UserMenu.LoginMenu;
 
 import java.util.ArrayList;
@@ -15,10 +15,10 @@ import java.util.List;
 
 public class GameController {
     private final User currentUser;
-    private final GameMenuSinglePlayer menu;
+    private final GameMenu menu;
     private final Game game;
     public boolean hasLost = false;
-    public GameController(User currentUser, GameMenuSinglePlayer menu, Game game){
+    public GameController(User currentUser, GameMenu menu, Game game){
         this.menu = menu;
         this.currentUser = currentUser;
         this.game = game;
@@ -29,7 +29,7 @@ public class GameController {
     }
 
     public void run() throws Exception {
-        GameMenuSinglePlayer.controller = this;
+        GameMenu.controller = this;
         menu.start(LoginMenu.classStage);
     }
 
@@ -82,7 +82,7 @@ public class GameController {
         menu.music.stop();
         menu.music = new MediaPlayer(new Media(musicNumber.getPath()));
         menu.music.setCycleCount(MediaPlayer.INDEFINITE);
-        menu.music.setMute(GameMenuSinglePlayer.controller.getCurrentUser().getSetting().isMute());
+        menu.music.setMute(GameMenu.controller.getCurrentUser().getSetting().isMute());
         menu.music.play();
     }
 
@@ -114,7 +114,14 @@ public class GameController {
         menu.losingTimeLine.stop();
         menu.timerTimeLine.stop();
     }
+
+    public void setScore(int score, double time){
+        if (currentUser.getHighScore() < score) {
+            currentUser.setHighScore(score);
+            currentUser.setRecordTime(time);
+        }
+    }
     public boolean hasLost(){
-        return menu.throwingCircles.getChildren().size() != 0;
+        return menu.throwingCirclesSingle.getChildren().size() != 0;
     }
 }

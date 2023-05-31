@@ -4,21 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="added losing and winning endgame menu">
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenuMultiplePlayer.java" afterDir="false" />
+    <list default="true" id="70882cf0-c0e7-4ecf-9f74-7c5eecf2d3e7" name="Changes" comment="added phase 4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ScoreBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ScoreBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UserController/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/AA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/AA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/UserSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/EndGameAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/EndGameAnimation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Rotation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Animation/Transition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenuSinglePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu/GameMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenuInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenuInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenuInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenuMultiplePlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenuSinglePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/GameMenus/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/ScoreBoardMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ScoreBoardMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/EndGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GameFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GameFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainFXML.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ScoreboardFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ScoreboardFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/SettingFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/SettingFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/AccountDeletionFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/AccountDeletionFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/LoginFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/LoginFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/ProfileFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/ProfileFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/SignupFXML.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/SignupFXML.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/selectAvatar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/UserFXML/selectAvatar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +138,7 @@
       <workItem from="1685310749101" duration="94000" />
       <workItem from="1685359516053" duration="5893000" />
       <workItem from="1685372550711" duration="393000" />
-      <workItem from="1685380791444" duration="3681000" />
+      <workItem from="1685380791444" duration="12298000" />
     </task>
     <task id="LOCAL-00001" summary="MVC Structure">
       <created>1683416709258</created>
@@ -252,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685012050397</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added phase 4">
+      <created>1685436074193</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1685436074193</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +319,8 @@
     <MESSAGE value="added black and white setting" />
     <MESSAGE value="up and running" />
     <MESSAGE value="everything up and running for real this time" />
-    <option name="LAST_COMMIT_MESSAGE" value="everything up and running for real this time" />
+    <MESSAGE value="added phase 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="added phase 4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

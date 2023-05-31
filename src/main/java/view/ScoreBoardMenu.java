@@ -69,7 +69,7 @@ public class ScoreBoardMenu extends Application {
             Text rank = new Text(Integer.toString(i+1));
             Text username = new Text(user.getUsername());
             Text highScore = new Text(Integer.toString(user.getHighScore()));
-            Text recordTime = new Text(Integer.toString(user.getRecordTime()));
+            Text recordTime = new Text(Double.toString(user.getRecordTime()));
             if (i < 3){
                 rank.setStyle("-fx-fill: green");
                 username.setStyle("-fx-fill: green");

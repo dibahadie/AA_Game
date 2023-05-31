@@ -11,7 +11,6 @@ public class UserManager {
 
 
     public static void updateUsers() {
-        // TODO : code passwords
         Gson gson = new Gson();
         JsonArray jsonArray = new JsonArray();
         JsonObject jsonObject = new JsonObject();

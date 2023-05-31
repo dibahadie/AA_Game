@@ -12,7 +12,7 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="view.MainMenu"
-            prefHeight="400.0" prefWidth="600.0" id="mainPain">
+            prefHeight="500.0" prefWidth="600.0" id="mainPain">
 
     <center>
         <VBox alignment="CENTER" fillWidth="false" spacing="5">
@@ -22,6 +22,8 @@
             </ImageView>
             <Button text="New Game" prefWidth="160" onMouseClicked="#newGame"
                    fx:id="newGame"/>
+            <Button text="New Game (multiPlayer)" prefWidth="160" onMouseClicked="#newGameDouble"
+                    fx:id="newGameDouble"/>
             <Button text="Continue Last Game" prefWidth="160" onMouseClicked="#continueGame"/>
             <Button text="Profile Menu" prefWidth="160" onMouseClicked="#profileMenu"
                     fx:id="profileMenu"/>

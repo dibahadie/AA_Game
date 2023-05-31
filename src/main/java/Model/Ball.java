@@ -13,6 +13,7 @@ public class Ball extends StackPane {
         this.text = new Text(text);
         this.circle = new Circle();
         this.circle.setRadius(radius);
+        this.circle.setStyle("-fx-stroke: white");
         this.getChildren().addAll(this.circle, this.text);
         this.setTranslateX(TransX);
         this.setTranslateY(TransY);

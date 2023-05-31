@@ -8,7 +8,7 @@ public class User {
     private UserSetting setting;
     private String avatarPath;
     private int highScore;
-    private int recordTime;
+    private double recordTime;
     public User(String username, String password){
         this.username = username;
         this.password = password;
@@ -28,6 +28,7 @@ public class User {
     }
 
     public void setUsername(String username) {
+        AA.getInstance().changeUsername(this.username, username);
         this.username = username;
         UserManager.updateUsers();
     }
@@ -55,6 +56,7 @@ public class User {
 
     public void setAvatarPath(String avatarPath) {
         this.avatarPath = avatarPath;
+        UserManager.updateUsers();
     }
 
     public int getRank(){
@@ -67,13 +69,15 @@ public class User {
 
     public void setHighScore(int highScore) {
         this.highScore = highScore;
+        UserManager.updateUsers();
     }
 
-    public void setRecordTime(int recordTime) {
+    public void setRecordTime(double recordTime) {
         this.recordTime = recordTime;
+        UserManager.updateUsers();
     }
 
-    public int getRecordTime() {
+    public double getRecordTime() {
         return recordTime;
     }
 }

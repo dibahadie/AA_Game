@@ -28,22 +28,27 @@ import view.UserMenu.LoginMenu;
 
 import java.net.URL;
 
-public class GameMenuSinglePlayer extends Application {
+public class GameMenu extends Application {
     public Scene scene;
     public static GameController controller;
     private static Transition transition;
     public Circle centerCircle, blackCircle;
     public Pane pane;
     public StackPane perimeterObjects, score, leftBalls, timer;
-    public Group throwingCircles;
+    public Group throwingCirclesSingle, throwingCirclesDouble;
     public ProgressBar progressBar;
-    public Button pauseMenuButton, mute, changeMusic, restart;
+    public Button pauseMenuButton, mute, changeMusic, restart, exit;
     public VBox pauseMenu, musicOptions, endGamePopUp;
     public MediaPlayer music;
     public Timeline losingTimeLine, timerTimeLine;
     public int phase = 1;
     public double horizontalOffset = 0;
     boolean isPauseMenuOpened = false;
+    boolean multiplePlayer = false;
+    int turn = 1;
+    public GameMenu(boolean single){
+        this.multiplePlayer = !single;
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -53,7 +58,8 @@ public class GameMenuSinglePlayer extends Application {
         pane = loader.load();
 
         GameMenuInitializer initializer = new GameMenuInitializer(this);
-        initializer.initializeSinglePlayer(pane);
+        if (!multiplePlayer) initializer.initializeSinglePlayer(pane);
+        else initializer.initializeMultiplePlayer(pane);
         transition = new Transition(this);
 
         scene = new Scene(pane);
@@ -76,14 +82,8 @@ public class GameMenuSinglePlayer extends Application {
 
 
     private void updateProgressBar(KeyEvent e) {
-        if (e.getCode() == KeyCode.SPACE) {
+        if (e.getCode() == KeyCode.SPACE || e.getCode() == KeyCode.ENTER) {
             progressBar.setProgress(progressBar.getProgress() + 0.1);
-        }
-        if (e.getCode() == KeyCode.TAB) {
-            if (Math.abs(1 - progressBar.getProgress()) < 0.000001d) {
-                progressBar.setProgress(0);
-                Rotation.setFreezeRotation(controller.getGame().getFreezePause(), perimeterObjects, phase);
-            }
         }
         scene.getRoot().requestFocus();
     }
@@ -91,33 +91,51 @@ public class GameMenuSinglePlayer extends Application {
     private void addKeyEvents(Scene scene) {
         scene.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.SPACE) {
-                throwBall();
+                throwBall(true);
+                updatePhase();
+            }
+            else if(e.getCode() == KeyCode.ENTER){
+                throwBall(false);
                 updatePhase();
             }
             else if (e.getCode() == KeyCode.LEFT) {
-//                if (phase == 4){
-                    transition.moveAllBallsHorizontal(-1, throwingCircles);
+                if (phase == 4){
+                    transition.moveAllBallsHorizontal(-1, throwingCirclesSingle);
                     horizontalOffset--;
-//                }
+                }
             } else if (e.getCode() == KeyCode.RIGHT) {
-//                if (phase == 4) {
-                    transition.moveAllBallsHorizontal(1, throwingCircles);
+                if (phase == 4) {
+                    transition.moveAllBallsHorizontal(1, throwingCirclesSingle);
                     horizontalOffset++;
-//                }
+                }
+            }
+            else if (e.getCode() == KeyCode.TAB) {
+                if (Math.abs(1 - progressBar.getProgress()) < 0.000001d) {
+                    progressBar.setProgress(0);
+                    Rotation.setFreezeRotation(controller.getGame().getFreezePause(), perimeterObjects, phase, this);
+                }
             }
             updateProgressBar(e);
             scene.getRoot().requestFocus();
         });
     }
 
-    private void throwBall() {
-        Ball circle = (Ball) throwingCircles.getChildren().get(0);
-        transition.moveAllBallsUp(controller.getRadius() * 2 + 5, throwingCircles);
-        transition.throwBall(circle);
+    private void throwBall(boolean single) {
+        if (single && throwingCirclesSingle.getChildren().size() == 0) return;
+        if (!single && throwingCirclesDouble.getChildren().size() == 0) return;
+        Ball circle;
+        if (single) circle = (Ball) throwingCirclesSingle.getChildren().get(0);
+        else circle = (Ball) throwingCirclesDouble.getChildren().get(0);
+        Group allBalls = single ? throwingCirclesSingle : throwingCirclesDouble;
+        transition.moveAllBalls(controller.getRadius() * 2 + 5, allBalls, single);
+        transition.throwBall(circle, single);
         controller.updateScore(phase);
         updateLeftBalls();
         playThroughBallSound();
-        if (throwingCircles.getChildren().size() == 1) {
+        if (single && throwingCirclesSingle.getChildren().size() == 1) {
+            controller.win();
+        }
+        else if (throwingCirclesSingle.getChildren().size() == 1 && throwingCirclesDouble.getChildren().size() == 1) {
             controller.win();
         }
     }
@@ -128,12 +146,13 @@ public class GameMenuSinglePlayer extends Application {
         mediaPlayer.play();
     }
 
-    public void setThrownBallCoordinate(StackPane circle) {
+    public void setThrownBallCoordinate(StackPane circle, boolean single) {
         double x = horizontalOffset;
         double offset = 150 - Math.sqrt(22500 - x*x);
         double offsetAngle = Math.acos((150 - offset)/150);
         double rotationAngle = (90 - perimeterObjects.getRotate()) * Math.PI / 180;
         rotationAngle -= offsetAngle;
+        if (!single) rotationAngle += Math.PI;
         circle.setTranslateX(Math.cos(rotationAngle) * 150);
         circle.setTranslateY(Math.sin(rotationAngle) * 150);
         perimeterObjects.getChildren().add(createLine(rotationAngle));
@@ -164,7 +183,7 @@ public class GameMenuSinglePlayer extends Application {
 
     public void updatePhase() {
         int allBalls = controller.getGame().getBallNumber() - 5;
-        int thrownBalls = allBalls - throwingCircles.getChildren().size() + 1;
+        int thrownBalls = allBalls - throwingCirclesSingle.getChildren().size() + 1;
         if (4 * thrownBalls >= allBalls && 4 * thrownBalls <= 2 * allBalls) {
             if (phase != 2) Rotation.setSecondPhaseRotation(perimeterObjects);
             transition.scaleBallTransition(perimeterObjects, centerCircle);
@@ -182,7 +201,7 @@ public class GameMenuSinglePlayer extends Application {
     }
 
     public void updateLeftBalls() {
-        int left = throwingCircles.getChildren().size() - 1;
+        int left = throwingCirclesSingle.getChildren().size() - 1;
         int all = controller.getGame().getBallNumber() - 5;
         ((Text) leftBalls.getChildren().get(2)).setText(Integer.toString(left));
         Circle scoreBall = (Circle) leftBalls.getChildren().get(0);
@@ -200,6 +219,8 @@ public class GameMenuSinglePlayer extends Application {
         String timeSecond = ((Text) timer.getChildren().get(2)).getText();
         String timeMillisecond = ((Text) timer.getChildren().get(3)).getText();
         double time = Integer.parseInt(timeSecond) + Integer.parseInt(timeMillisecond) * 0.01;
+        int score = Integer.parseInt(scoreStr);
+        controller.setScore(score, time);
         if (status) {
             ((Text) endGamePopUp.getChildren().get(0)).setText("You won!\n" + "Your score is " + scoreStr +
                     "\nYour time is " + time);

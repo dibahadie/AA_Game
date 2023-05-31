@@ -3,7 +3,7 @@ package Controller;
 import Controller.UserController.ProfileController;
 import Model.Game;
 import Model.User;
-import view.GameMenus.GameMenuSinglePlayer;
+import view.GameMenus.GameMenu;
 import view.MainMenu;
 import view.ScoreBoardMenu;
 import view.SettingMenu;
@@ -36,9 +36,9 @@ public class MainController {
         profileController.run();
     }
 
-    public void runGame() throws Exception {
-        GameMenuSinglePlayer gameMenuSinglePlayer = new GameMenuSinglePlayer();
-        GameController gameController = new GameController(currentUser, gameMenuSinglePlayer, new Game(currentUser));
+    public void runGame(boolean single) throws Exception {
+        GameMenu gameMenu = new GameMenu(single);
+        GameController gameController = new GameController(currentUser, gameMenu, new Game(currentUser));
         gameController.run();
     }
     public void runScoreboard() throws Exception {

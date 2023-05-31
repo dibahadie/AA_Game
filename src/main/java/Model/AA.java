@@ -39,6 +39,12 @@ public class AA {
         updateRanking();
     }
 
+    public void changeUsername(String old, String newUser){
+        User user = users.get(old);
+        users.remove(old);
+        users.put(newUser, user);
+    }
+
     public User getUser(String username){
         return users.get(username);
     }
@@ -48,7 +54,6 @@ public class AA {
     }
 
     public static void updateRanking(){
-//        TODO : update ranking at the end of the game
         userRanking.clear();
         userRanking.addAll(users.values());
         userRanking.remove(users.get("default"));

@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.AA;
 import Model.User;
 import view.ScoreBoardMenu;
 import view.UserMenu.LoginMenu;
@@ -12,6 +13,7 @@ public class ScoreBoardController {
         this.menu = menu;
     }
     public void run() throws Exception {
+        AA.updateRanking();
         ScoreBoardMenu.controller = this;
         menu.start(LoginMenu.classStage);
     }

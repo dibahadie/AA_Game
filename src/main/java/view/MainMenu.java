@@ -63,7 +63,7 @@ public class MainMenu extends Application {
     }
 
     public void newGame(MouseEvent mouseEvent) throws Exception {
-        controller.runGame();
+        controller.runGame(true);
     }
 
     public void continueGame(MouseEvent mouseEvent) {
@@ -83,5 +83,9 @@ public class MainMenu extends Application {
 
     public void exit(MouseEvent mouseEvent) {
         System.exit(0);
+    }
+
+    public void newGameDouble(MouseEvent mouseEvent) throws Exception {
+        controller.runGame(false);
     }
 }

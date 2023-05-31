@@ -10,17 +10,18 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
-import view.GameMenus.GameMenuSinglePlayer;
+import view.GameMenus.GameMenu;
 
 public class Transition {
-    private GameMenuSinglePlayer menu;
-    public Transition(GameMenuSinglePlayer menu){
+    private GameMenu menu;
+    public Transition(GameMenu menu){
         this.menu = menu;
     }
-    public void moveAllBallsUp(double d, Group throwingCircles){
+    public void moveAllBalls(double d, Group throwingCircles, boolean single){
+        double yOffset = single ? -1*d : d;
         for (Node child : throwingCircles.getChildren()) {
             TranslateTransition transition = new TranslateTransition(Duration.seconds(0.2), child);
-            transition.setByY((-1) * d);
+            transition.setByY(yOffset);
             transition.setCycleCount(1);
             transition.play();
         }
@@ -35,26 +36,26 @@ public class Transition {
         }
     }
 
-    public void throwBall(Ball circle){
+    public void throwBall(Ball circle, boolean single){
         TranslateTransition transition = new TranslateTransition(Duration.seconds(0.2), circle);
         double x = menu.horizontalOffset;
+        double isSingle = single ? -1 : 1;
         if (x > 150){
-            transition.setByY(-350);
-
+            transition.setByY(400 * isSingle);
         } else {
             double offset = 150 - Math.sqrt(22500 - x*x);
-            transition.setByY((-1) * 30 - offset);
+            transition.setByY(isSingle * (30 + offset));
         }
         transition.setCycleCount(1);
         transition.play();
         transition.setOnFinished(e -> {
-            menu.throwingCircles.getChildren().remove(circle);
+            menu.throwingCirclesSingle.getChildren().remove(circle);
             if (x <= 150) {
-                menu.setThrownBallCoordinate(circle);
+                menu.setThrownBallCoordinate(circle, single);
             }
             else {
                 menu.pane.getChildren().add(circle);
-                GameMenuSinglePlayer.controller.lose();
+                GameMenu.controller.lose();
             }
         });
     }
